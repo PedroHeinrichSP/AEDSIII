@@ -10,7 +10,7 @@
 >>
 >> ![Logo Pokemon](/CSV/International_Pok%C3%A9mon_logo.svg.png)
 >
->> *CODIGO* - Códigos em Java programados
+>> *MAVEN* - Códigos em Java programados usando gerenciador MAVEN
 >
 >> *COMANDOS TERMINAL* - Comandos para execução dos arquivos no terminal
 >
