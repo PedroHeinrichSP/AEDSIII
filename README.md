@@ -21,6 +21,4 @@
 
 ---
 
-Prof. Hayala
-
 PUC Minas - Coração Eucarístico
