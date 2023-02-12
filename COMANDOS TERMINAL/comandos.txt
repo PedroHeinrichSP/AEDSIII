@@ -1,0 +1,4 @@
+// Compilar
+javac -cp opencsv-5.7.1.jar TP01.java        
+// Executar
+java -cp opencsv-5.7.1.jar TP01
