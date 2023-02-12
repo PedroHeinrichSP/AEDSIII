@@ -1,3 +1,4 @@
+package MAVEN.Codigo.pokemoncsv.src.main.java.tps;
 import java.util.Calendar;
 import java.util.Date;
 import java.io.File;
@@ -6,7 +7,7 @@ import java.io.IOException;
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
 
-class TP01{
+public class TP01 {
     public class Pokedex{
         /*
          * N° (ID - número da pokedex) - tipo Inteiro (short)
@@ -209,5 +210,6 @@ class TP01{
         File file = new File("D:\\AEDSIII\\CSV\\Pokedex.csv");
         // Parser
         Parser p = new Parser(file);
+        p.teste(file);
     }
 }
