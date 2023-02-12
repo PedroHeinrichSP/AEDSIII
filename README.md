@@ -1,12 +1,13 @@
 # AEDSIII
 
-### Trabalhos Práticos de Algoritmos e Estrutura de Dados III
+## Trabalhos Práticos de Algoritmos e Estrutura de Dados III
 
 ---
 
-> ***PASTAS***
+> ### PASTAS
 >
 >> *CSV* - Base de Dados Usada
+>>
 >> ![Logo Pokemon](/CSV/International_Pok%C3%A9mon_logo.svg.png)
 >
 >> *CODIGO* - Códigos em Java programados
@@ -20,7 +21,5 @@
 **[Pedro Heinrich Sales Pena](https://github.com/PedroHeinrichSP) | [Augusto Scardua Oliveira](https://github.com/Azugot)**
 
 ---
-
-Prof. Hayala
 
 PUC Minas - Coração Eucarístico
