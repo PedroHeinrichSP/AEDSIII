@@ -1,4 +1,4 @@
-package MAVEN.Codigo.pokemoncsv.src.main.java.tps;
+package tps;
 import java.util.Calendar;
 import java.util.Date;
 import java.io.File;
