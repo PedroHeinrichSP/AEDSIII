@@ -8,9 +8,7 @@
 >
 >> *CSV* - Base de Dados Usada
 >>
->> ![Logo Pokemon](/CSV/International_Pok%C3%A9mon_logo.svg.png)
->
->> *MAVEN* - Códigos em Java programados usando gerenciador MAVEN
+>> ![Logo Pokemon](/TP01/CSV/International_Pok%C3%A9mon_logo.svg.png)
 >
 >> *COMANDOS TERMINAL* - Comandos para execução dos arquivos no terminal
 >
