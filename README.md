@@ -6,9 +6,11 @@
 
 > ### PASTAS
 >
->> *CSV* - Base de Dados Usada
+>> *DOCUMENTOS* - Base de Dados, imagem, e biblioteca usadas 
 >>
 >> ![Logo Pokemon](/TP01/CSV/International_Pok%C3%A9mon_logo.svg.png)
+>
+>> *CODIGO* - Codigos em Java dos Trabalhos Práticos
 >
 >> *COMANDOS TERMINAL* - Comandos para execução dos arquivos no terminal
 >
