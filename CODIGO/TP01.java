@@ -1,5 +1,7 @@
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
@@ -7,7 +9,7 @@ import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
 
 public class TP01 {
-    public class Pokedex{
+    public static class Pokedex{
         /*
          * N° (ID - número da pokedex) - tipo Inteiro (short)
          * Name (Nome - Nome do Pokemon, formas diferentes incluídas) - tipo Fixo (String)
@@ -24,19 +26,31 @@ public class TP01 {
         private Date Generation;
         private float Height;
         private float Weight;
-        private String[] Type;
+        private List<String> Type;
         private byte Category;
         private boolean Mega_Evolution_Flag;
         private int TOTAL;
 
         // Construtor
-        public Pokedex(short ID, String Name, Date Generation, float Height, float Weight, String[] Type, byte Category, boolean Mega_Evolution_Flag, int TOTAL){
+        public Pokedex(){
+            this.ID = 0;
+            this.Name = "";
+            this.Generation = new Date();
+            this.Height = 0;
+            this.Weight = 0;
+            this.Type = new ArrayList<String>();
+            this.Category = 0;
+            this.Mega_Evolution_Flag = false;
+            this.TOTAL = 0;
+        }
+
+        public Pokedex(short ID, String Name, Date Generation, float Height, float Weight, List<String> type2, byte Category, boolean Mega_Evolution_Flag, int TOTAL){
             this.ID = ID;
             this.Name = Name;
             this.Generation = Generation;
             this.Height = Height;
             this.Weight = Weight;
-            this.Type = Type;
+            this.Type = type2;
             this.Category = Category;
             this.Mega_Evolution_Flag = Mega_Evolution_Flag;
             this.TOTAL = TOTAL;
@@ -58,7 +72,7 @@ public class TP01 {
         public float getWeight(){
             return this.Weight;
         }
-        public String[] getType(){
+        public List<String> getType(){
             return this.Type;
         }
         public byte getCategory(){
@@ -87,7 +101,7 @@ public class TP01 {
         public void setWeight(float Weight){
             this.Weight = Weight;
         }
-        public void setType(String[] Type){
+        public void setType(List<String> Type){
             this.Type = Type;
         }
         public void setCategory(byte Category){
@@ -102,7 +116,7 @@ public class TP01 {
 
         // toString
         public String toString(){
-            return "ID: " + this.ID + " | Name: " + this.Name + " | Generation: " + this.Generation + " | Height: " + this.Height + " | Weight: " + this.Weight + " | Type: " + this.Type + " | Category: " + this.Category + " | Mega_Evolution_Flag: " + this.Mega_Evolution_Flag + " | TOTAL: " + this.TOTAL;
+            return "ID: " + this.ID + " | Name: " + this.Name + " | Generation: " + this.Generation + " | Height: " + this.Height + "m | Weight: " + this.Weight + "kg | Type: " + this.Type + " | Category: " + byteCatToString(this.Category) + " | Mega_Evolution_Flag: " + this.Mega_Evolution_Flag + " | TOTAL: " + this.TOTAL;
         }
 
         // Clone
@@ -144,21 +158,44 @@ public class TP01 {
 
         // isOrdinary
         public boolean isOrdinary(){
-            return (this.Category == 1);
+            return (this.Category == 0);
         }
 
         // isLegendary
         public boolean isLegendary(){
-            return (this.Category == 2);
+            return (this.Category == 1);
         }
 
         // isMythical
         public boolean isMythical(){
+            return (this.Category == 2);
+        }
+
+        // isSemilegendary
+        public boolean isSemilegendary(){
             return (this.Category == 3);
+        }
+
+        // Auxiliar Methods
+        // Auxilia o método toString para retornar o nome da categoria do pokemon a partir do seu byte
+        public String byteCatToString (byte cat){
+            switch (cat) {
+                case 0:
+                    return "Ordinary";
+                case 1:
+                    return "Legendary";
+                case 2:
+                    return "Mythical";
+                case 3:
+                    return "Semi-Legendary";
+                default:
+                    return "Ordinary";
+            }
         }
     }
 
-    public class Gen{
+    public static class Gen{
+        // Gerações
         final Date gen1 = setTime(1996, 1, 27).getTime();
         final Date gen2 = setTime(1999, 10, 21).getTime();
         final Date gen3 = setTime(2002, 10, 21).getTime();
@@ -168,7 +205,10 @@ public class TP01 {
         final Date gen7 = setTime(2016, 10, 18).getTime();
         final Date gen8 = setTime(2019, 10, 15).getTime();
         final Date gen9 = setTime(2022, 10, 18).getTime();
-        // Base de dados para conversão, geração (int) para tipo Date (data de lançamento da gen), no parsing do CSV
+        //Construtor
+        public Gen(){
+        }
+        // Base de dados para conversão, geração (String) para tipo Date (data de lançamento da gen), no parsing do CSV
         public Calendar setTime (int year, int month, int day){
             Calendar cal = Calendar.getInstance();
             cal.set(Calendar.YEAR, year);
@@ -176,39 +216,138 @@ public class TP01 {
             cal.set(Calendar.DAY_OF_MONTH, day);
             return cal;
         }
-    }
 
-    public static class Parser{
-        // Construtor   
-        public Parser(File file){
-            try {
-                teste(file);
-            } catch (IOException e) {
-                e.printStackTrace();
+        public Date GenToDate (String gen){
+            switch (gen) {
+                case "1":
+                    return gen1;
+                case "2":
+                    return gen2;
+                case "3":
+                    return gen3;
+                case "4":
+                    return gen4;
+                case "5":
+                    return gen5;
+                case "6":
+                    return gen6;
+                case "7":
+                    return gen7;
+                case "8":
+                    return gen8;
+                case "9":
+                    return gen9;
+                default:
+                    return null;
+            }
+        }
+    }
+    
+    public static class Cat{
+        // Categorias
+        final byte ordinary = 0;
+        final byte legendary = 1;
+        final byte mythical = 2;
+        final byte semi_legendary = 3;
+        //Construtor
+        public Cat(){
+        }
+        // Base de dados para conversão, categoria (String) para tipo byte (0 - ordinary, 1 - legendary, 2 - mythical), no parsing do CSV
+        public byte whatCategory (String cat){
+            switch (cat) {
+                case "Ordinary":
+                    return ordinary;
+                case "Legendary":
+                    return legendary;
+                case "Mythical":
+                    return mythical;
+                case "Semi-Legendary":
+                    return semi_legendary;
+                default:
+                    return 0;
             }
         }
 
-        public void teste(File file) throws IOException{
+    }
+    
+    public static class Parser{
+        // Construtor   
+        public Parser(File file){}
+        // Leitura e parsing do CSV
+        public List<Pokedex> leitura(File file) throws IOException{
             CSVReader reader = new CSVReader(new FileReader(file));
             String[] line;
+            Gen gen = new Gen();
+            Cat cat = new Cat();
+            List <Pokedex> pokedex = new ArrayList<Pokedex>();
             try {
+                reader.readNext(); // Ignora a primeira linha do CSV
+                int i=0;
                 while((line = reader.readNext()) != null){
+                    int j=0;
+                    Pokedex aux = new Pokedex();
                     for (String column : line) {
-                        System.out.print(column + " ");
+                        System.out.println("Linha: " + i + " Coluna: " + j + " Valor: " + column);
+                        String numeric; // Variável auxiliar para conversão de String para Float
+                        switch (j) {
+                            case 0: // ID
+                            aux.ID = Short.parseShort(column);
+                            break;
+                            case 2: // Name
+                            aux.Name = column;
+                            break;
+                            case 3: // Generation
+                            aux.Generation = gen.GenToDate(column);
+                            break;
+                            case 4: // Height
+                            numeric = column.replaceAll("m", ""); // Remove todos os caracteres não numéricos
+                            aux.Height = Float.parseFloat(numeric);
+                            break;
+                            case 5: // Weight
+                            numeric = column.replaceAll("kg", ""); // Remove todos os caracteres não numéricos
+                            aux.Weight = Float.parseFloat(numeric);
+                            break;
+                            case 6: // Type1
+                            aux.Type.add(column);
+                            break;
+                            case 7: // Type2
+                            aux.Type.add(column);
+                            break;
+                            case 21: // Category
+                            aux.Category = cat.whatCategory(column);
+                            break;
+                            case 22: // Mega_Evolution_Flag
+                                if(column.equals("Mega")){
+                                    aux.Mega_Evolution_Flag = true;
+                                }else{
+                                    aux.Mega_Evolution_Flag = false;
+                                }
+                            break;
+                            case 30: // TOTAL   
+                            aux.TOTAL = Integer.parseInt(column);
+                            break;
+                        }
+                        j++;
                     }
+                    pokedex.add(i, aux);
+                    i++;
                 }
             } catch (CsvValidationException e) {
                 e.printStackTrace();
             }
             System.out.println();
+            return pokedex;
         }
     }
 
     public static void main(String[] args) throws IOException{
         // File
         File file = new File("D:\\AEDSIII\\DOCUMENTOS\\Pokedex.csv");
-        // Parser
+        // Teste
         Parser p = new Parser(file);
-        p.teste(file);
+        List<Pokedex> pokedex = p.leitura(file);
+        for (Pokedex entry: pokedex) {
+            System.out.println(entry);
+        }
     }
 }
