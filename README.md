@@ -7,7 +7,7 @@
 > ### PASTAS
 >
 >>
->> ![Logo Pokemon](/TP01/DOCUMENTOS/International_Pok%C3%A9mon_logo.svg.png)
+>> ![Logo Pokemon](DOCUMENTOS/International_Pok%C3%A9mon_logo.svg.png)
 >> *DOCUMENTOS* - Documentos gerais relacionados ao trabalho usadas 
 >
 >> *CODIGOS* - Codigos em Java dos Trabalhos Práticos
