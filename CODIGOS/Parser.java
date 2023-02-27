@@ -9,7 +9,7 @@ import com.opencsv.exceptions.CsvValidationException;
 
 public class Parser {
     // Construtor
-    public Parser(File file) {
+    public Parser() {
     }
 
     // Leitura e parsing do CSV
