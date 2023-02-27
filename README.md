@@ -6,13 +6,14 @@
 
 > ### PASTAS
 >
->> *DOCUMENTOS* - Base de Dados, imagem, e biblioteca usadas 
 >>
->> ![Logo Pokemon](/TP01/CSV/International_Pok%C3%A9mon_logo.svg.png)
+>> ![Logo Pokemon](DOCUMENTOS/International_Pok%C3%A9mon_logo.svg.png)
+>>
+>> *DOCUMENTOS* - Documentos gerais relacionados ao trabalho usadas 
 >
->> *CODIGO* - Codigos em Java dos Trabalhos Práticos
+>> *CODIGOS* - Codigos em Java dos Trabalhos Práticos
 >
->> *COMANDOS TERMINAL* - Comandos para execução dos arquivos no terminal
+>> *BIBLIOTECAS* - Bibliotecas usadas no trabalho
 >
 >> *.vscode* - Arquivos de configuração do *Visual Studio Code*
 

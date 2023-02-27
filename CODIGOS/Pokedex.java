@@ -130,7 +130,7 @@ public class Pokedex {
     public String toString() {
         return "ID: " + this.ID + " | Name: " + this.Name + " | Generation: " + this.Generation + " | Height: "
                 + this.Height + "m | Weight: " + this.Weight + "kg | Type: " + this.Type + " | Category: "
-                + byteCatToString(this.Category) + " | Mega_Evolution_Flag: " + this.Mega_Evolution_Flag
+                + byteCatToString(this.Category) + " | Mega Evolution: " + this.Mega_Evolution_Flag
                 + " | TOTAL: " + this.TOTAL;
     }
 

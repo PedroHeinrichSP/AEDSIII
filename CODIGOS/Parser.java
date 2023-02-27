@@ -26,7 +26,7 @@ public class Parser {
                 int j = 0;
                 Pokedex aux = new Pokedex();
                 for (String column : line) {
-                    System.out.println("Linha: " + i + " Coluna: " + j + " Valor: " + column);
+                    //Debug: System.out.println("Linha: " + i + " Coluna: " + j + " Valor: " + column);
                     String numeric; // Variável auxiliar para conversão de String para Float
                     switch (j) {
                         case 0: // ID
