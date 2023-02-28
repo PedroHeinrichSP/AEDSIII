@@ -1,6 +1,5 @@
 import java.awt.*;
 import java.io.File;
-import java.io.IOException;
 import java.util.List;
 import javax.swing.*;
 import net.miginfocom.swing.*;
@@ -15,6 +14,8 @@ public class Screen extends JFrame {
 
     private void initComponents() {
         setVisible(true);
+		setLocationRelativeTo(null);
+		setMinimumSize(new Dimension(800, 600));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		importCSV = new JButton();
 		Pokemon = new JLabel();
@@ -85,8 +86,7 @@ public class Screen extends JFrame {
         importCSV.addActionListener(e -> {
             try {
                 pokedex = p.leitura(csvFile);
-                Binario.readFile("DOCUMENTOS\\Pokedex.csv");
-            } catch (IOException e1) {
+            } catch (Exception e1) {
                 e1.printStackTrace();
             }
         });
@@ -99,10 +99,26 @@ public class Screen extends JFrame {
                         ID.setText(entry.toString());
                     }
                 }
-            } catch (Exception e1) {
-                e1.printStackTrace();
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }      
         });
+
+		updateID.addActionListener(e -> {
+			try {
+				Binario.writePokedexToFile("DOCUMENTOS\\saida.db", pokedex);
+			} catch (Exception e3) {
+				e3.printStackTrace();
+			}
+		});
+
+		deleteID.addActionListener(e -> {
+			try {
+				Binario.readFile("DOCUMENTOS\\saida.db");
+			} catch (Exception e4) {
+				e4.printStackTrace();
+			}
+		});
     }
 
     private JButton importCSV;

@@ -9,6 +9,6 @@ public class Main extends Binario {
         // Saída (Saida num arquivo em txt)
         File saida = new File("DOCUMENTOS\\saida.txt");
         PrintStream stream = new PrintStream(saida);
-        System.setOut(stream);
+        System.setOut(stream);  // Redireciona a saída padrão para o arquivo
     }
 }
