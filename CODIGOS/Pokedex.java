@@ -1,3 +1,6 @@
+import java.io.ByteArrayOutputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -17,8 +20,8 @@ public class Pokedex {
      * TOTAL (Status - Total da soma de status do pokemon) - tipo Valores (int)
      */
     protected short ID;
-    String Name;
-    Date Generation;
+    protected String Name;
+    protected Date Generation;
     protected float Height;
     protected float Weight;
     protected List<String> Type;
@@ -211,5 +214,24 @@ public class Pokedex {
             default:
                 return "Ordinary";
         }
+    }
+
+    //getBytes to use randomAccessFile
+    public byte[] getBytes() throws IOException {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        DataOutputStream dos = new DataOutputStream(baos);
+        dos.writeShort(this.ID);
+        dos.writeUTF(this.Name);
+        dos.writeLong(this.Generation.getTime());
+        dos.writeFloat(this.Height);
+        dos.writeFloat(this.Weight);
+        dos.writeByte(this.Type.size());
+        for (String type : this.Type) {
+            dos.writeUTF(type);
+        }
+        dos.writeByte(this.Category);
+        dos.writeBoolean(this.Mega_Evolution_Flag);
+        dos.writeInt(this.TOTAL);
+        return baos.toByteArray();
     }
 }
