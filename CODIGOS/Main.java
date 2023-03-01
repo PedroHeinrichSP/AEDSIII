@@ -5,27 +5,24 @@ import java.util.List;
 
 public class Main extends Binario {
 
-    public static void main(String[] args) throws IOException {
-        //new Screen();
-        // Saída (Saida num arquivo em txt)
-        File saida = new File("DOCUMENTOS\\saida.txt");
-        PrintStream stream = new PrintStream(saida);
-<<<<<<< Updated upstream
-        System.setOut(stream);
-=======
-        System.setOut(stream); // Redireciona a saída padrão para o arquivo
+        public static void main(String[] args) throws IOException {
+                // new Screen();
+                // Saída (Saida num arquivo em txt)
+                File saida = new File("DOCUMENTOS\\saida.txt");
+                PrintStream stream = new PrintStream(saida);
 
-        List<Pokedex> pokedex;
-        Parser parser = new Parser();
-        File path = new File("DOCUMENTOS\\Pokedex.csv");
+                System.setOut(stream); // Redireciona a saída padrão para o arquivo
 
-        pokedex = parser.leitura(path);
+                List<Pokedex> pokedex;
+                Parser parser = new Parser();
+                File path = new File("DOCUMENTOS\\Pokedex.csv");
 
-        writePokedexToFile("DOCUMENTOS\\Pokedex.db", pokedex);
+                pokedex = parser.leitura(path);
 
-        System.out.println(readFile("DOCUMENTOS\\Pokedex.db"));
+                writePokedexToFile("DOCUMENTOS\\Pokedex.db", pokedex);
 
->>>>>>> Stashed changes
-    }
+                System.out.println(readFile("DOCUMENTOS\\Pokedex.db"));
+
+        }
 
 }

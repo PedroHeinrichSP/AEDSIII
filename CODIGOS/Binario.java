@@ -20,15 +20,9 @@ public class Binario {
      * @param pokedex Lista de pokemons
      */
     public static void writePokedexToFile(String path, List<Pokedex> pokedex) throws IOException {
-<<<<<<< Updated upstream
-        RandomAccessFile file = new RandomAccessFile(path, "w");
-        for (Pokedex entries : pokedex) {
-            file.write(entries.getBytes());
-            file.write(",\n".getBytes());
-=======
+
         for (Pokedex entry : pokedex) {
             writeToFile(path, entry);
->>>>>>> Stashed changes
         }
     }
 
