@@ -106,7 +106,7 @@ public class Screen extends JFrame {
 
 		updateID.addActionListener(e -> {
 			try {
-				Binario.writePokedexToFile("DOCUMENTOS\\saida.db", pokedex);
+				//Binario.writePokedexToFile("DOCUMENTOS\\saida.db", pokedex);
 			} catch (Exception e3) {
 				e3.printStackTrace();
 			}
@@ -114,7 +114,7 @@ public class Screen extends JFrame {
 
 		deleteID.addActionListener(e -> {
 			try {
-				Binario.readFile("DOCUMENTOS\\saida.db");
+				//Binario.readFile("DOCUMENTOS\\saida.db");
 			} catch (Exception e4) {
 				e4.printStackTrace();
 			}

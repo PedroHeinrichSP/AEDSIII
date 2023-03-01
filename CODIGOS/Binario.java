@@ -1,6 +1,5 @@
 import java.io.RandomAccessFile;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Binario {
@@ -8,14 +7,20 @@ public class Binario {
     // Indicador de tamanho do registro
     // Vetor de bytes
 
-    protected String path;
+    private final String path;
+    private RandomAccessFile file;
+    private long posicao = Integer.BYTES;
+
+    public Binario(String path) {
+        this.path = path;
+    }
 
     /**
      * Limpa o arquivo binário de uma pokedex
      * 
      * @param path Caminho do arquivo
      */
-    public static void clear(String path) throws IOException {
+    public void clear() throws IOException {
         RandomAccessFile file = new RandomAccessFile(path, "rw");
         file.setLength(0);
         file.close();
@@ -27,11 +32,29 @@ public class Binario {
      * @param path    Caminho do arquivo
      * @param pokedex Lista de pokemons
      */
-    public static void writePokedexToFile(String path, List<Pokedex> pokedex) throws IOException {
-        clear(path);
+    public void writePokedexToFile(List<Pokedex> pokedex) throws IOException {
+        clear();
         for (Pokedex entry : pokedex) {
-            writeToFile(path, entry);
+            writeToFile(entry);
         }
+    }
+
+    private int cabecalho() throws IOException {
+        this.file.seek(0);
+
+        int id = 0;
+        if (this.file.length() == 0) {
+            this.file.writeInt(0);
+        } else {
+            id = this.file.readInt();
+        }
+
+        return id;
+    }
+
+    private void updateCabecalho(int id) throws IOException {
+        this.file.seek(0);
+        this.file.write(id);
     }
 
     /**
@@ -40,52 +63,86 @@ public class Binario {
      * @param path    Caminho do arquivo
      * @param pokedex Lista de pokemons
      */
-    public static void writeToFile(String path, Pokedex pokedex) throws IOException {
-        RandomAccessFile file = new RandomAccessFile(path, "rw");
-        PokeDB aux = new PokeDB(pokedex);
-        file.seek(file.length());
-        byte[] arr = aux.toByteArray();
-        file.writeInt(arr.length);
-        file.write(arr);
-        file.close();
+    public void writeToFile(Pokedex pokedex) throws IOException {
+        this.file = new RandomAccessFile(path, "rw");
+        cabecalho();
+
+        this.file.seek(file.length());
+        byte[] arr = pokedex.toByteArray();
+        this.file.writeBoolean(true);
+        this.file.writeInt(arr.length);
+        this.file.write(arr);
+
+        updateCabecalho(pokedex.getID());
+        this.file.close();
     }
 
-    public static PokeDB readFirstEntry(String path) throws IOException {
-        RandomAccessFile file = new RandomAccessFile(path, "r");
-        file.seek(0);
-        int length = file.readInt();
+    public Pokedex read() throws IOException {
+        this.file = new RandomAccessFile(path, "rw");
 
+        if (this.posicao >= this.file.length()) {
+            return null;
+        }
+
+        this.file.seek(this.posicao);
+
+        int length;
+
+        boolean lapide = this.file.readBoolean();
+        while (!lapide) {
+            length = this.file.readInt();
+            this.file.skipBytes(length);
+
+            lapide = this.file.readBoolean();
+        }
+
+        length = this.file.readInt();
         byte[] bytes = new byte[length];
-        file.read(bytes);
-        PokeDB aux = new PokeDB();
+        this.file.read(bytes);
+
+        Pokedex aux = new Pokedex();
         aux.fromByteArray(bytes);
+
+        this.posicao = this.file.getFilePointer();
         file.close();
         return aux;
     }
 
-    public static ArrayList<PokeDB> readFile(String path) throws IOException {
-        RandomAccessFile file = new RandomAccessFile(path, "r");
-        file.seek(0);
-        ArrayList<PokeDB> result = new ArrayList<PokeDB>();
-        long fileSize = file.length();
-        long getFilePointer = file.getFilePointer();
-        PokeDB aux = new PokeDB();
+    public boolean delete(int id) throws IOException {
+        this.file = new RandomAccessFile(this.path, "rw");
 
-        try {
-            while (getFilePointer < fileSize) {
-                int length = file.readInt();
-                aux = new PokeDB();
-                byte[] bytes = new byte[length];
-                file.read(bytes);
-                aux.fromByteArray(bytes);
-                System.out.println(aux.toString());
-                result.add(aux);
-                getFilePointer = file.getFilePointer();
-            }
-        } catch (Exception e) {
-            System.out.println("Erro no registro: " + getFilePointer);
+        if (this.file.length() == 0) {
+            throw new IllegalStateException("O arquivo está vazio");
         }
-        file.close();
-        return result;
+
+        this.file.seek(Integer.BYTES);
+
+        long pos = -1;
+
+        Pokedex aux;
+        boolean lapide;
+
+        do {
+            pos = this.file.getFilePointer();
+            lapide = this.file.readBoolean();
+            int length = this.file.readInt();
+
+            byte[] arr = new byte[length];
+            this.file.read(arr);
+
+            aux = new Pokedex();
+            aux.fromByteArray(arr);
+        } while ((aux.getID() != id || !lapide) && this.file.getFilePointer() < this.file.length());
+
+        if (aux.getID() == id && lapide) {
+            this.file.seek(pos);
+            this.file.writeBoolean(false);
+        } else {
+            this.file.close();
+            return false;
+        }
+
+        this.file.close();
+        return true;
     }
 }

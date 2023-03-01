@@ -78,4 +78,16 @@ public class Parser {
         // System.out.println();
         return pokedex;
     }
+
+    public void readCsv(File file) throws IOException, CsvValidationException {
+        CSVReader reader = new CSVReader(new FileReader(file));
+        String[] line;
+
+        while ((line = reader.readNext()) != null) {
+            for (String column : line) {
+                System.out.print(column + " ");
+            }
+            System.out.println();
+        }
+    }
 }

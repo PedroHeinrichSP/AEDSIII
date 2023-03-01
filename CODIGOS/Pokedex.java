@@ -1,4 +1,6 @@
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -164,13 +166,7 @@ public class Pokedex {
 
     // compareTo
     public int compareTo(Pokedex p) {
-        if (this.ID > p.ID) {
-            return 1;
-        } else if (this.ID < p.ID) {
-            return -1;
-        } else {
-            return 0;
-        }
+        return this.ID - p.ID;
     }
 
     // isMega
@@ -216,22 +212,46 @@ public class Pokedex {
         }
     }
 
-    //getBytes to use randomAccessFile
-    public byte[] getBytes() throws IOException {
+    // getBytes to use randomAccessFile
+    public byte[] toByteArray() throws IOException {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         DataOutputStream dos = new DataOutputStream(baos);
+
         dos.writeShort(this.ID);
         dos.writeUTF(this.Name);
         dos.writeLong(this.Generation.getTime());
         dos.writeFloat(this.Height);
         dos.writeFloat(this.Weight);
+
         dos.writeByte(this.Type.size());
         for (String type : this.Type) {
             dos.writeUTF(type);
         }
+
         dos.writeByte(this.Category);
         dos.writeBoolean(this.Mega_Evolution_Flag);
         dos.writeInt(this.TOTAL);
         return baos.toByteArray();
     }
+
+    public void fromByteArray(byte[] b) throws IOException {
+        ByteArrayInputStream bais = new ByteArrayInputStream(b);
+        DataInputStream dis = new DataInputStream(bais);
+
+        this.ID = dis.readShort();
+        this.Name = dis.readUTF();
+        this.Generation = new Date(dis.readLong());
+        this.Height = dis.readFloat();
+        this.Weight = dis.readFloat();
+
+        byte length = dis.readByte();
+        for (byte i = 0; i < length; i++) {
+            this.Type.add(dis.readUTF());
+        }
+
+        this.Category = dis.readByte();
+        this.Mega_Evolution_Flag = dis.readBoolean();
+        this.TOTAL = dis.readInt();
+    }
+
 }

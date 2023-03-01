@@ -3,14 +3,15 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.util.List;
 
-public class Main extends Binario {
+import com.opencsv.exceptions.CsvValidationException;
 
-        public static void main(String[] args) throws IOException {
+public class Main {
+
+        public static void main(String[] args) throws IOException, CsvValidationException {
                 // new Screen();
                 // Saída (Saida num arquivo em txt)
                 File saida = new File("DATA\\saida.txt");
                 PrintStream stream = new PrintStream(saida);
-
                 System.setOut(stream); // Redireciona a saída padrão para o arquivo
 
                 List<Pokedex> pokedex;
@@ -19,9 +20,18 @@ public class Main extends Binario {
 
                 pokedex = parser.leitura(path);
 
-                writePokedexToFile("DATA\\Pokedex.db", pokedex);
-                readFile("DATA\\Pokedex.db");
+                Binario bin = new Binario("DATA\\pokedex.db");
 
+                for (Pokedex p : pokedex) {
+                        bin.writeToFile(p);
+                }
+
+                System.out.println(bin.delete(9));
+
+                Pokedex aux;
+                while ((aux = bin.read()) != null) {
+                        System.out.println(aux);
+                }
         }
 
 }
