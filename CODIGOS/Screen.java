@@ -1,6 +1,5 @@
 import java.awt.*;
 import java.io.File;
-import java.io.IOException;
 import java.util.List;
 import javax.swing.*;
 import net.miginfocom.swing.*;
@@ -84,70 +83,43 @@ public class Screen extends JFrame {
 		pack();
 		setLocationRelativeTo(getOwner());
 
-<<<<<<< Updated upstream
-        importCSV.addActionListener(e -> {
-            try {
-                pokedex = p.leitura(csvFile);
-                Binario.readFile("DOCUMENTOS\\Pokedex.csv");
-            } catch (IOException e1) {
-                e1.printStackTrace();
-            }
-        });
-        
-        readID.addActionListener(e -> {
-            try {
-                String id = idCampo.getText();
-                for (Pokedex entry : pokedex) {
-                    if (Short.parseShort(id) == entry.getID()) {
-                        ID.setText(entry.toString());
-                    }
-                }
-            } catch (Exception e1) {
-                e1.printStackTrace();
-            }      
-        });
-    }=======importCSV.addActionListener(e->
-
-	{
-		try {
-			pokedex = p.leitura(csvFile);
-		} catch (Exception e1) {
-			e1.printStackTrace();
-		}
-	});
-
-	readID.addActionListener(e->
-	{
-		try {
-			String id = idCampo.getText();
-			for (Pokedex entry : pokedex) {
-				if (Short.parseShort(id) == entry.getID()) {
-					ID.setText(entry.toString());
-				}
+		importCSV.addActionListener(e -> {
+			try {
+				pokedex = p.leitura(csvFile);
+			} catch (Exception e1) {
+				e1.printStackTrace();
 			}
-		} catch (Exception e2) {
-			e2.printStackTrace();
-		}
-	});
+		});
 
-	updateID.addActionListener(e->
-	{
-		try {
-			Binario.writePokedexToFile("DOCUMENTOS\\saida.db", pokedex);
-		} catch (Exception e3) {
-			e3.printStackTrace();
-		}
-	});
+		readID.addActionListener(e -> {
+			try {
+				String id = idCampo.getText();
+				for (Pokedex entry : pokedex) {
+					if (Short.parseShort(id) == entry.getID()) {
+						ID.setText(entry.toString());
+					}
+				}
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		});
 
-	deleteID.addActionListener(e->
-	{
-		try {
-			Binario.readFile("DOCUMENTOS\\saida.db");
-		} catch (Exception e4) {
-			e4.printStackTrace();
-		}
-	});}>>>>>>>
-	Stashed changes
+		updateID.addActionListener(e -> {
+			try {
+				Binario.writePokedexToFile("DOCUMENTOS\\saida.db", pokedex);
+			} catch (Exception e3) {
+				e3.printStackTrace();
+			}
+		});
+
+		deleteID.addActionListener(e -> {
+			try {
+				Binario.readFile("DOCUMENTOS\\saida.db");
+			} catch (Exception e4) {
+				e4.printStackTrace();
+			}
+		});
+	}
 
 	private JButton importCSV;
 	private JLabel Pokemon;
