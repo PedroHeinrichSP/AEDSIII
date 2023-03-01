@@ -1,10 +1,7 @@
 import java.io.RandomAccessFile;
-import java.lang.reflect.Array;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-import org.apache.commons.collections4.multimap.ArrayListValuedHashMap;
 
 public class Binario {
     // Bit de lápide, para saber se o registro está ativo ou não
@@ -14,13 +11,24 @@ public class Binario {
     protected String path;
 
     /**
+     * Limpa o arquivo binário de uma pokedex
+     * 
+     * @param path Caminho do arquivo
+     */
+    public static void clear(String path) throws IOException {
+        RandomAccessFile file = new RandomAccessFile(path, "rw");
+        file.setLength(0);
+        file.close();
+    }
+
+    /**
      * Constroi o arquivo binário de uma pokedex
      * 
      * @param path    Caminho do arquivo
      * @param pokedex Lista de pokemons
      */
     public static void writePokedexToFile(String path, List<Pokedex> pokedex) throws IOException {
-
+        clear(path);
         for (Pokedex entry : pokedex) {
             writeToFile(path, entry);
         }
@@ -59,13 +67,23 @@ public class Binario {
         RandomAccessFile file = new RandomAccessFile(path, "r");
         file.seek(0);
         ArrayList<PokeDB> result = new ArrayList<PokeDB>();
-        while (file.getFilePointer() < file.length()) {
-            int length = file.readInt();
-            PokeDB aux = new PokeDB();
-            byte[] bytes = new byte[length];
-            file.read(bytes);
-            aux.fromByteArray(bytes);
-            result.add(aux);
+        long fileSize = file.length();
+        long getFilePointer = file.getFilePointer();
+        PokeDB aux = new PokeDB();
+
+        try {
+            while (getFilePointer < fileSize) {
+                int length = file.readInt();
+                aux = new PokeDB();
+                byte[] bytes = new byte[length];
+                file.read(bytes);
+                aux.fromByteArray(bytes);
+                System.out.println(aux.toString());
+                result.add(aux);
+                getFilePointer = file.getFilePointer();
+            }
+        } catch (Exception e) {
+            System.out.println("Erro no registro: " + getFilePointer);
         }
         file.close();
         return result;

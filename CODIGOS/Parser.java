@@ -75,7 +75,7 @@ public class Parser {
         } catch (CsvValidationException e) {
             e.printStackTrace();
         }
-        System.out.println();
+        // System.out.println();
         return pokedex;
     }
 }
