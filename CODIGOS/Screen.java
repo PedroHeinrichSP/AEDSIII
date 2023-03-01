@@ -4,9 +4,6 @@ import java.util.List;
 import javax.swing.*;
 import net.miginfocom.swing.*;
 
-/**
- * @author marco
- */
 public class Screen extends JFrame {
 	public Screen() {
 		initComponents();
