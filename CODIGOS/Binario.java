@@ -145,4 +145,71 @@ public class Binario {
         this.file.close();
         return true;
     }
+
+    // provavel nao funcionar
+    public boolean update(int id, Pokedex pokedex) throws IOException {
+        this.file = new RandomAccessFile(this.path, "rw");
+
+        if (this.file.length() == 0) {
+            throw new IllegalStateException("O arquivo está vazio");
+        }
+
+        this.file.seek(Integer.BYTES);
+
+        long pos = -1;
+
+        Pokedex aux;
+        boolean lapide;
+
+        do {
+            pos = this.file.getFilePointer();
+            lapide = this.file.readBoolean();
+            int length = this.file.readInt();
+
+            byte[] arr = new byte[length];
+            this.file.read(arr);
+
+            aux = new Pokedex();
+            aux.fromByteArray(arr);
+        } while ((aux.getID() != id || !lapide) && this.file.getFilePointer() < this.file.length());
+
+        if (aux.getID() == id && lapide) {
+            this.file.seek(pos);
+            this.file.writeBoolean(false);
+        } else {
+            this.file.close();
+            return false;
+        }
+
+        writeToFile(pokedex);
+        this.file.close();
+        return true;
+    }
+
+    // ta dando erro aqui
+    public Pokedex seekID(int id) throws IOException {
+        this.file = new RandomAccessFile(this.path, "rw");
+
+        if (this.file.length() == 0) {
+            throw new IllegalStateException("O arquivo está vazio");
+        }
+
+        this.file.seek(Integer.BYTES);
+
+        Pokedex aux;
+        boolean lapide;
+
+        do {
+            lapide = this.file.readBoolean();
+            int length = this.file.readInt();
+
+            byte[] arr = new byte[length];
+            this.file.read(arr);
+
+            aux = new Pokedex();
+            aux.fromByteArray(arr);
+        } while ((aux.getID() != id && !lapide) && this.file.getFilePointer() < this.file.length());
+
+        return aux;
+    }
 }

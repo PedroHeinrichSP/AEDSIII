@@ -10,10 +10,14 @@ public class Screen extends JFrame {
 	}
 
 	private void initComponents() {
+
+		// Variáveis de tela
 		setVisible(true);
 		setLocationRelativeTo(null);
 		setMinimumSize(new Dimension(800, 600));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		// Init dos componentes
 		importCSV = new JButton();
 		Pokemon = new JLabel();
 		readID = new JButton();
@@ -82,7 +86,13 @@ public class Screen extends JFrame {
 
 		importCSV.addActionListener(e -> {
 			try {
-				pokedex = p.leitura(csvFile);
+				bin = new Binario(path);
+				pokedex = parser.leitura(miniDex);
+
+                for (Pokedex p : pokedex) {
+                        bin.writeToFile(p);
+                }
+
 			} catch (Exception e1) {
 				e1.printStackTrace();
 			}
@@ -90,12 +100,8 @@ public class Screen extends JFrame {
 
 		readID.addActionListener(e -> {
 			try {
-				String id = idCampo.getText();
-				for (Pokedex entry : pokedex) {
-					if (Short.parseShort(id) == entry.getID()) {
-						ID.setText(entry.toString());
-					}
-				}
+				int id = Integer.parseInt(idCampo.getText());
+				ID.setText(bin.seekID(id).toString());
 			} catch (Exception e2) {
 				e2.printStackTrace();
 			}
@@ -103,7 +109,11 @@ public class Screen extends JFrame {
 
 		updateID.addActionListener(e -> {
 			try {
-				//Binario.writePokedexToFile("DOCUMENTOS\\saida.db", pokedex);
+				int id = Integer.parseInt(idCampo.getText());
+				aux = bin.seekID(id);
+				UptadeScreen uptadeScreen = new UptadeScreen(aux, id, this);
+				uptadeScreen.setVisible(true);
+
 			} catch (Exception e3) {
 				e3.printStackTrace();
 			}
@@ -111,12 +121,13 @@ public class Screen extends JFrame {
 
 		deleteID.addActionListener(e -> {
 			try {
-				//Binario.readFile("DOCUMENTOS\\saida.db");
+				bin.delete(Integer.parseInt(idCampo.getText()));
 			} catch (Exception e4) {
 				e4.printStackTrace();
 			}
 		});
 	}
+
 
 	private JButton importCSV;
 	private JLabel Pokemon;
@@ -126,8 +137,12 @@ public class Screen extends JFrame {
 	private JTextField idCampo;
 	private JTextArea textArea1;
 	private JButton deleteID;
-	Parser p = new Parser();
-	File csvFile = new File("DOCUMENTOS\\Pokedex.csv");
-	File saida = new File("DOCUMENTOS\\saida.txt");
+	Parser parser = new Parser();
+	File miniDex = new File("DOCUMENTOS\\miniDex.csv");
+	File pokeDex = new File("DOCUMENTOS\\Pokedex.csv");
+	File out = new File("DOCUMENTOS\\out.txt");
+	String path = "DOCUMENTOS\\pokedex.db";
 	List<Pokedex> pokedex;
+	Pokedex aux;
+	Binario bin;
 }

@@ -3,6 +3,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -133,7 +135,8 @@ public class Pokedex {
 
     // toString
     public String toString() {
-        return "ID: " + this.ID + " | Name: " + this.Name + " | Generation: " + this.Generation + " | Height: "
+        DateFormat format = new SimpleDateFormat("EEE MMM dd kk:mm:ss zzz yyyy");    
+        return "ID: " + this.ID + " | Name: " + this.Name + " | Generation: " + format.format(Generation) + " | Height: "
                 + this.Height + "m | Weight: " + this.Weight + "kg | Type: " + this.Type + " | Category: "
                 + byteCatToString(this.Category) + " | Mega Evolution: " + this.Mega_Evolution_Flag
                 + " | TOTAL: " + this.TOTAL;

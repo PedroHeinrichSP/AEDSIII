@@ -1,0 +1,1 @@
+ID: 2 | Name: Ivysaur | Generation: Ter fev 27 04:55:01 BRT 1996 | Height: 1.0m | Weight: 13.0kg | Type: [Grass, Poison] | Category: Ordinary | Mega Evolution: false | TOTAL: 405
