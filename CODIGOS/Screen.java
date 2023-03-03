@@ -53,7 +53,7 @@ public class Screen extends JFrame {
 		contentPane.add(importCSV, "cell 1 1");
 
 		// ---- Pokemon ----
-		Pokemon.setIcon(new ImageIcon("DOCUMENTOS\\International_Pokémon_logo.svg.png"));
+		Pokemon.setIcon(new ImageIcon("DOCUMENTOS\\International_Pokemon_logo.png"));
 		contentPane.add(Pokemon, "cell 7 0 1 3,align center center,grow 0 0");
 
 		// ---- readID ----
@@ -87,7 +87,7 @@ public class Screen extends JFrame {
 		importCSV.addActionListener(e -> {
 			try {
 				bin = new Binario(path);
-				pokedex = parser.leitura(miniDex);
+				pokedex = parser.leitura(pokeDex);
 
                 for (Pokedex p : pokedex) {
                         bin.writeToFile(p);
@@ -140,7 +140,6 @@ public class Screen extends JFrame {
 	Parser parser = new Parser();
 	File miniDex = new File("DOCUMENTOS\\miniDex.csv");
 	File pokeDex = new File("DOCUMENTOS\\Pokedex.csv");
-	File out = new File("DOCUMENTOS\\out.txt");
 	String path = "DOCUMENTOS\\pokedex.db";
 	List<Pokedex> pokedex;
 	Pokedex aux;
