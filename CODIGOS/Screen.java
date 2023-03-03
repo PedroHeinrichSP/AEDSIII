@@ -65,6 +65,7 @@ public class Screen extends JFrame {
 		contentPane.add(updateID, "cell 1 4");
 
 		// ---- ID ----
+		ID.setVisible(false);
 		ID.setEditable(false);
 		ID.setLineWrap(true);
 		ID.setWrapStyleWord(true);
@@ -87,7 +88,7 @@ public class Screen extends JFrame {
 		importCSV.addActionListener(e -> {
 			try {
 				bin = new Binario(path);
-				pokedex = parser.leitura(pokeDex);
+				pokedex = parser.leitura(miniDex);
 
                 for (Pokedex p : pokedex) {
                         bin.writeToFile(p);
@@ -100,8 +101,13 @@ public class Screen extends JFrame {
 
 		readID.addActionListener(e -> {
 			try {
+				ID.setVisible(true);
 				int id = Integer.parseInt(idCampo.getText());
 				ID.setText(bin.seekID(id).toString());
+				System.out.println("ID LIDO:" + bin.seekID(id).toString() + "\n Binário:");
+				while ((aux = bin.read()) != null) {
+					System.out.println(aux);
+				}
 			} catch (Exception e2) {
 				e2.printStackTrace();
 			}
@@ -113,6 +119,23 @@ public class Screen extends JFrame {
 				aux = bin.seekID(id);
 				UptadeScreen uptadeScreen = new UptadeScreen(aux, id, this);
 				uptadeScreen.setVisible(true);
+				
+				// window listener for when updateScreen is closed
+				uptadeScreen.addWindowListener(new java.awt.event.WindowAdapter() {
+					@Override
+					public void windowClosed(java.awt.event.WindowEvent windowEvent) {
+						//lê da entrada aux ID.setText(aux.toString());
+						try {
+							bin.update(id, aux);
+							System.out.println("\nAtualizado");
+							while ((aux = bin.read()) != null) {
+								System.out.println(aux);
+							}
+						} catch (Exception e1) {
+							e1.printStackTrace();
+						}
+					}
+				});
 
 			} catch (Exception e3) {
 				e3.printStackTrace();

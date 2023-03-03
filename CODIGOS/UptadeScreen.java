@@ -1,5 +1,4 @@
 import java.awt.*;
-import java.io.IOException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -13,7 +12,6 @@ public class UptadeScreen extends JFrame {
 	public UptadeScreen(Pokedex pokedex, int id, Screen screen) {
 		this.entry = pokedex;
 		this.id = id;
-		this.screen = screen;
 		initComponents();
 	}
 
@@ -159,12 +157,6 @@ public class UptadeScreen extends JFrame {
 				entry.setCategory(Byte.parseByte(textFieldCat.getText()));
 				entry.setMega_Evolution_Flag(Boolean.parseBoolean(textFieldMega.getText()));
 				entry.setTOTAL(Integer.parseInt(textFieldTotal.getText()));
-				try {
-					screen.bin.update(id, entry);
-					System.out.print(screen.bin.read());
-				} catch (IOException e1) {
-					e1.printStackTrace();
-				}
 				JOptionPane.showMessageDialog(null, "Registro atualizado com sucesso!");
 				dispose();
 			});
@@ -192,7 +184,6 @@ public class UptadeScreen extends JFrame {
 	private JLabel labelTotal;
 	private JTextField textFieldTotal;
 	private JButton button1;
-	private Screen screen;
 
 	Pokedex entry;
 	int id;

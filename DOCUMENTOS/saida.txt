@@ -1,0 +1,49 @@
+ID LIDO:ID: 1 | Name: Bulbasaur | Generation: Ter fev 27 07:45:50 BRT 1996 | Height: 0.7m | Weight: 6.9kg | Type: [Grass, Poison] | Category: Ordinary | Mega Evolution: false | TOTAL: 318
+ Binário:
+ID: 1 | Name: Bulbasaur | Generation: Ter fev 27 07:45:50 BRT 1996 | Height: 0.7m | Weight: 6.9kg | Type: [Grass, Poison] | Category: Ordinary | Mega Evolution: false | TOTAL: 318
+ID: 2 | Name: Ivysaur | Generation: Ter fev 27 07:45:50 BRT 1996 | Height: 1.0m | Weight: 13.0kg | Type: [Grass, Poison] | Category: Ordinary | Mega Evolution: false | TOTAL: 405
+ID: 3 | Name: Venusaur | Generation: Ter fev 27 07:45:50 BRT 1996 | Height: 2.0m | Weight: 100.0kg | Type: [Grass, Poison] | Category: Ordinary | Mega Evolution: false | TOTAL: 525
+ID: 4 | Name: Charmander | Generation: Ter fev 27 07:45:50 BRT 1996 | Height: 0.6m | Weight: 8.5kg | Type: [Fire, ] | Category: Ordinary | Mega Evolution: false | TOTAL: 309
+ID: 5 | Name: Charmeleon | Generation: Ter fev 27 07:45:50 BRT 1996 | Height: 1.1m | Weight: 19.0kg | Type: [Fire, ] | Category: Ordinary | Mega Evolution: false | TOTAL: 405
+ID: 6 | Name: Mega Charizard Y | Generation: Ter fev 27 07:45:50 BRT 1996 | Height: 1.7m | Weight: 100.5kg | Type: [Fire, Flying] | Category: Ordinary | Mega Evolution: true | TOTAL: 634
+ID: 7 | Name: Squirtle | Generation: Ter fev 27 07:45:50 BRT 1996 | Height: 0.5m | Weight: 9.0kg | Type: [Water, ] | Category: Ordinary | Mega Evolution: false | TOTAL: 314
+ID: 8 | Name: Wartortle | Generation: Ter fev 27 07:45:50 BRT 1996 | Height: 1.0m | Weight: 22.5kg | Type: [Water, ] | Category: Ordinary | Mega Evolution: false | TOTAL: 405
+ID: 9 | Name: Blastoise | Generation: Ter fev 27 07:45:50 BRT 1996 | Height: 1.6m | Weight: 85.5kg | Type: [Water, ] | Category: Ordinary | Mega Evolution: false | TOTAL: 530
+ID: 10 | Name: Caterpie | Generation: Ter fev 27 07:45:50 BRT 1996 | Height: 0.3m | Weight: 2.9kg | Type: [Bug, ] | Category: Ordinary | Mega Evolution: false | TOTAL: 195
+ID: 11 | Name: Metapod | Generation: Ter fev 27 07:45:50 BRT 1996 | Height: 0.7m | Weight: 9.9kg | Type: [Bug, ] | Category: Ordinary | Mega Evolution: false | TOTAL: 205
+ID: 12 | Name: Butterfree | Generation: Ter fev 27 07:45:50 BRT 1996 | Height: 1.1m | Weight: 32.0kg | Type: [Bug, Flying] | Category: Ordinary | Mega Evolution: false | TOTAL: 395
+ID: 13 | Name: Weedle | Generation: Ter fev 27 07:45:50 BRT 1996 | Height: 0.3m | Weight: 3.2kg | Type: [Bug, Poison] | Category: Ordinary | Mega Evolution: false | TOTAL: 195
+ID: 14 | Name: Kakuna | Generation: Ter fev 27 07:45:50 BRT 1996 | Height: 0.6m | Weight: 10.0kg | Type: [Bug, Poison] | Category: Ordinary | Mega Evolution: false | TOTAL: 205
+ID: 15 | Name: Beedrill | Generation: Ter fev 27 07:45:50 BRT 1996 | Height: 1.0m | Weight: 29.5kg | Type: [Bug, Poison] | Category: Ordinary | Mega Evolution: false | TOTAL: 395
+ID: 1 | Name: Bulbasaur | Generation: Ter fev 27 07:46:51 BRT 1996 | Height: 0.7m | Weight: 6.9kg | Type: [Grass, Poison] | Category: Ordinary | Mega Evolution: false | TOTAL: 318
+ID: 2 | Name: Ivysaur | Generation: Ter fev 27 07:46:51 BRT 1996 | Height: 1.0m | Weight: 13.0kg | Type: [Grass, Poison] | Category: Ordinary | Mega Evolution: false | TOTAL: 405
+ID: 3 | Name: Venusaur | Generation: Ter fev 27 07:46:51 BRT 1996 | Height: 2.0m | Weight: 100.0kg | Type: [Grass, Poison] | Category: Ordinary | Mega Evolution: false | TOTAL: 525
+ID: 4 | Name: Charmander | Generation: Ter fev 27 07:46:51 BRT 1996 | Height: 0.6m | Weight: 8.5kg | Type: [Fire, ] | Category: Ordinary | Mega Evolution: false | TOTAL: 309
+ID: 5 | Name: Charmeleon | Generation: Ter fev 27 07:46:51 BRT 1996 | Height: 1.1m | Weight: 19.0kg | Type: [Fire, ] | Category: Ordinary | Mega Evolution: false | TOTAL: 405
+ID: 6 | Name: Mega Charizard Y | Generation: Ter fev 27 07:46:51 BRT 1996 | Height: 1.7m | Weight: 100.5kg | Type: [Fire, Flying] | Category: Ordinary | Mega Evolution: true | TOTAL: 634
+ID: 7 | Name: Squirtle | Generation: Ter fev 27 07:46:51 BRT 1996 | Height: 0.5m | Weight: 9.0kg | Type: [Water, ] | Category: Ordinary | Mega Evolution: false | TOTAL: 314
+ID: 8 | Name: Wartortle | Generation: Ter fev 27 07:46:51 BRT 1996 | Height: 1.0m | Weight: 22.5kg | Type: [Water, ] | Category: Ordinary | Mega Evolution: false | TOTAL: 405
+ID: 9 | Name: Blastoise | Generation: Ter fev 27 07:46:51 BRT 1996 | Height: 1.6m | Weight: 85.5kg | Type: [Water, ] | Category: Ordinary | Mega Evolution: false | TOTAL: 530
+ID: 10 | Name: Caterpie | Generation: Ter fev 27 07:46:51 BRT 1996 | Height: 0.3m | Weight: 2.9kg | Type: [Bug, ] | Category: Ordinary | Mega Evolution: false | TOTAL: 195
+ID: 11 | Name: Metapod | Generation: Ter fev 27 07:46:51 BRT 1996 | Height: 0.7m | Weight: 9.9kg | Type: [Bug, ] | Category: Ordinary | Mega Evolution: false | TOTAL: 205
+ID: 12 | Name: Butterfree | Generation: Ter fev 27 07:46:51 BRT 1996 | Height: 1.1m | Weight: 32.0kg | Type: [Bug, Flying] | Category: Ordinary | Mega Evolution: false | TOTAL: 395
+ID: 13 | Name: Weedle | Generation: Ter fev 27 07:46:51 BRT 1996 | Height: 0.3m | Weight: 3.2kg | Type: [Bug, Poison] | Category: Ordinary | Mega Evolution: false | TOTAL: 195
+ID: 14 | Name: Kakuna | Generation: Ter fev 27 07:46:51 BRT 1996 | Height: 0.6m | Weight: 10.0kg | Type: [Bug, Poison] | Category: Ordinary | Mega Evolution: false | TOTAL: 205
+ID: 15 | Name: Beedrill | Generation: Ter fev 27 07:46:51 BRT 1996 | Height: 1.0m | Weight: 29.5kg | Type: [Bug, Poison] | Category: Ordinary | Mega Evolution: false | TOTAL: 395
+ID: 1 | Name: Bulbasaur | Generation: Ter fev 27 07:50:08 BRT 1996 | Height: 0.7m | Weight: 6.9kg | Type: [Grass, Poison] | Category: Ordinary | Mega Evolution: false | TOTAL: 318
+ID: 2 | Name: Ivysaur | Generation: Ter fev 27 07:50:08 BRT 1996 | Height: 1.0m | Weight: 13.0kg | Type: [Grass, Poison] | Category: Ordinary | Mega Evolution: false | TOTAL: 405
+ID: 3 | Name: Venusaur | Generation: Ter fev 27 07:50:08 BRT 1996 | Height: 2.0m | Weight: 100.0kg | Type: [Grass, Poison] | Category: Ordinary | Mega Evolution: false | TOTAL: 525
+ID: 4 | Name: Charmander | Generation: Ter fev 27 07:50:08 BRT 1996 | Height: 0.6m | Weight: 8.5kg | Type: [Fire, ] | Category: Ordinary | Mega Evolution: false | TOTAL: 309
+ID: 5 | Name: Charmeleon | Generation: Ter fev 27 07:50:08 BRT 1996 | Height: 1.1m | Weight: 19.0kg | Type: [Fire, ] | Category: Ordinary | Mega Evolution: false | TOTAL: 405
+ID: 6 | Name: Mega Charizard Y | Generation: Ter fev 27 07:50:08 BRT 1996 | Height: 1.7m | Weight: 100.5kg | Type: [Fire, Flying] | Category: Ordinary | Mega Evolution: true | TOTAL: 634
+ID: 7 | Name: Squirtle | Generation: Ter fev 27 07:50:08 BRT 1996 | Height: 0.5m | Weight: 9.0kg | Type: [Water, ] | Category: Ordinary | Mega Evolution: false | TOTAL: 314
+ID: 8 | Name: Wartortle | Generation: Ter fev 27 07:50:08 BRT 1996 | Height: 1.0m | Weight: 22.5kg | Type: [Water, ] | Category: Ordinary | Mega Evolution: false | TOTAL: 405
+ID: 9 | Name: Blastoise | Generation: Ter fev 27 07:50:08 BRT 1996 | Height: 1.6m | Weight: 85.5kg | Type: [Water, ] | Category: Ordinary | Mega Evolution: false | TOTAL: 530
+ID: 10 | Name: Caterpie | Generation: Ter fev 27 07:50:08 BRT 1996 | Height: 0.3m | Weight: 2.9kg | Type: [Bug, ] | Category: Ordinary | Mega Evolution: false | TOTAL: 195
+ID: 11 | Name: Metapod | Generation: Ter fev 27 07:50:08 BRT 1996 | Height: 0.7m | Weight: 9.9kg | Type: [Bug, ] | Category: Ordinary | Mega Evolution: false | TOTAL: 205
+ID: 12 | Name: Butterfree | Generation: Ter fev 27 07:50:08 BRT 1996 | Height: 1.1m | Weight: 32.0kg | Type: [Bug, Flying] | Category: Ordinary | Mega Evolution: false | TOTAL: 395
+ID: 13 | Name: Weedle | Generation: Ter fev 27 07:50:08 BRT 1996 | Height: 0.3m | Weight: 3.2kg | Type: [Bug, Poison] | Category: Ordinary | Mega Evolution: false | TOTAL: 195
+ID: 14 | Name: Kakuna | Generation: Ter fev 27 07:50:08 BRT 1996 | Height: 0.6m | Weight: 10.0kg | Type: [Bug, Poison] | Category: Ordinary | Mega Evolution: false | TOTAL: 205
+ID: 15 | Name: Beedrill | Generation: Ter fev 27 07:50:08 BRT 1996 | Height: 1.0m | Weight: 29.5kg | Type: [Bug, Poison] | Category: Ordinary | Mega Evolution: false | TOTAL: 395
+ID LIDO:ID: 1 | Name: Bulbasaur | Generation: Ter fev 27 07:45:50 BRT 1996 | Height: 0.7m | Weight: 6.9kg | Type: [Grass, Poison] | Category: Ordinary | Mega Evolution: false | TOTAL: 318
+ Binário:
