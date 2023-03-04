@@ -146,8 +146,12 @@ public class Binario {
 
     // provavel nao funcionar
     public boolean update(int id, Pokedex pokedex) throws IOException {
-        delete(id);
-        writeToFile(pokedex);
+        try {
+            delete(id);
+            writeToFile(pokedex);
+        } catch (Exception e) {
+            return false;
+        }
         return true;
     }
 

@@ -146,7 +146,7 @@ public class UptadeScreen extends JFrame {
 				try {
 					entry.setGeneration(format.parse(textFieldGen.getText()));
 				} catch (ParseException e1) {
-					e1.printStackTrace();
+					JOptionPane.showMessageDialog(null, "Digite a data novamente no formato correto");
 				}
 				entry.setHeight(Float.parseFloat(textFieldHt.getText()));
 				entry.setWeight(Float.parseFloat(textFieldWt.getText()));
@@ -157,7 +157,6 @@ public class UptadeScreen extends JFrame {
 				entry.setCategory(Byte.parseByte(textFieldCat.getText()));
 				entry.setMega_Evolution_Flag(Boolean.parseBoolean(textFieldMega.getText()));
 				entry.setTOTAL(Integer.parseInt(textFieldTotal.getText()));
-				System.out.println("Entry: " + entry.toString());
 				JOptionPane.showMessageDialog(null, "Registro atualizado com sucesso!");
 				dispose();
 			});
