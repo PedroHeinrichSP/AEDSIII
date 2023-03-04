@@ -88,6 +88,7 @@ public class Screen extends JFrame {
 		importCSV.addActionListener(e -> {
 			try {
 				bin = new Binario(path);
+				bin.clear();
 				pokedex = parser.leitura(miniDex);
 
                 for (Pokedex p : pokedex) {
@@ -103,11 +104,15 @@ public class Screen extends JFrame {
 			try {
 				ID.setVisible(true);
 				int id = Integer.parseInt(idCampo.getText());
-				ID.setText(bin.seekID(id).toString());
-				System.out.println("ID LIDO:" + bin.seekID(id).toString() + "\n Binário:");
+				aux = bin.seekID(id);
+				if (aux != null)
+					ID.setText(aux.toString());	
+				else 
+					ID.setText("ID não encontrado");
+				/*System.out.println("ID LIDO:" + aux.toString() + "\n Binário:");
 				while ((aux = bin.read()) != null) {
 					System.out.println(aux);
-				}
+				}*/
 			} catch (Exception e2) {
 				e2.printStackTrace();
 			}
@@ -127,16 +132,11 @@ public class Screen extends JFrame {
 						//lê da entrada aux ID.setText(aux.toString());
 						try {
 							bin.update(id, aux);
-							System.out.println("\nAtualizado");
-							while ((aux = bin.read()) != null) {
-								System.out.println(aux);
-							}
 						} catch (Exception e1) {
 							e1.printStackTrace();
 						}
 					}
 				});
-
 			} catch (Exception e3) {
 				e3.printStackTrace();
 			}

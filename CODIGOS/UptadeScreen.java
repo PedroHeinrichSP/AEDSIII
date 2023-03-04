@@ -157,6 +157,7 @@ public class UptadeScreen extends JFrame {
 				entry.setCategory(Byte.parseByte(textFieldCat.getText()));
 				entry.setMega_Evolution_Flag(Boolean.parseBoolean(textFieldMega.getText()));
 				entry.setTOTAL(Integer.parseInt(textFieldTotal.getText()));
+				System.out.println("Entry: " + entry.toString());
 				JOptionPane.showMessageDialog(null, "Registro atualizado com sucesso!");
 				dispose();
 			});

@@ -17,8 +17,6 @@ public class Binario {
 
     /**
      * Limpa o arquivo binário de uma pokedex
-     * 
-     * @param path Caminho do arquivo
      */
     public void clear() throws IOException {
         RandomAccessFile file = new RandomAccessFile(path, "rw");
@@ -148,41 +146,8 @@ public class Binario {
 
     // provavel nao funcionar
     public boolean update(int id, Pokedex pokedex) throws IOException {
-        this.file = new RandomAccessFile(this.path, "rw");
-
-        if (this.file.length() == 0) {
-            throw new IllegalStateException("O arquivo está vazio");
-        }
-
-        this.file.seek(Integer.BYTES);
-
-        long pos = -1;
-
-        Pokedex aux;
-        boolean lapide;
-
-        do {
-            pos = this.file.getFilePointer();
-            lapide = this.file.readBoolean();
-            int length = this.file.readInt();
-
-            byte[] arr = new byte[length];
-            this.file.read(arr);
-
-            aux = new Pokedex();
-            aux.fromByteArray(arr);
-        } while ((aux.getID() != id || !lapide) && this.file.getFilePointer() < this.file.length());
-
-        if (aux.getID() == id && lapide) {
-            this.file.seek(pos);
-            this.file.writeBoolean(false);
-        } else {
-            this.file.close();
-            return false;
-        }
-
+        delete(id);
         writeToFile(pokedex);
-        this.file.close();
         return true;
     }
 
@@ -208,8 +173,12 @@ public class Binario {
 
             aux = new Pokedex();
             aux.fromByteArray(arr);
-        } while ((aux.getID() != id && !lapide) && this.file.getFilePointer() < this.file.length());
+        } while ((aux.getID() != id || !lapide) && this.file.getFilePointer() < this.file.length());
 
-        return aux;
+        if (aux.getID() == id && lapide) {
+            return aux;
+        } else {
+            return null;
+        }
     }
 }
