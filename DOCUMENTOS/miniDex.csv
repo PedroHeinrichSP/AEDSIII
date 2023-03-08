@@ -1,16 +1,16 @@
 ﻿No,Original_Name,Name,Generation,Height,Weight,Type1,Type2,Ability1,Ability2,Ability_Hidden,Color,Gender_Male,Gender_Female,Gender_Unknown,Egg_Steps,Egg_Group1,Egg_Group2,Get_Rate,Base_Experience,Experience_Type,Category,Mega_Evolution_Flag,Region_Form,HP,Attack,Defense,SP_Attack,SP_Defense,Speed,Total,E_HP,E_Attack,E_Defense,E_SP_Attack,E_SP_Defense,E_Speed
+5,Charmeleon,Charmeleon,1,1.1m,19.0kg,Fire,,Blaze,,Solar Power,Red,87.5,12.5,0,20,Monster,Dragon,45,142,1059860,Ordinary,,,58,64,58,80,65,80,405,0,0,0,1,0,1
+12,Butterfree,Butterfree,1,1.1m,32.0kg,Bug,Flying,Compound Eyes,,Tinted Lens,White,50,50,0,15,Bug,,45,198,1000000,Ordinary,,,60,45,50,90,80,70,395,0,0,0,2,1,0
+6,Charizard,Mega Charizard Y,1,1.7m,100.5kg,Fire,Flying,Drought,,,Red,87.5,12.5,0,20,Monster,Dragon,45,285,1059860,Ordinary,Mega,,78,104,78,159,115,100,634,0,0,0,3,0,0
+7,Squirtle,Squirtle,1,0.5m,9.0kg,Water,,Torrent,,Rain Dish,Blue,87.5,12.5,0,20,Monster,Water1,45,63,1059860,Ordinary,,,44,48,65,50,64,43,314,0,0,1,0,0,0
+11,Metapod,Metapod,1,0.7m,9.9kg,Bug,,Shed Skin,,,Green,50,50,0,15,Bug,,120,72,1000000,Ordinary,,,50,20,55,25,25,30,205,0,0,2,0,0,0
+13,Weedle,Weedle,1,0.3m,3.2kg,Bug,Poison,Shield Dust,,Run Away,Brown,50,50,0,15,Bug,,255,39,1000000,Ordinary,,,40,35,30,20,20,50,195,0,0,0,0,0,1
+14,Kakuna,Kakuna,1,0.6m,10.0kg,Bug,Poison,Shed Skin,,,Yellow,50,50,0,15,Bug,,120,72,1000000,Ordinary,,,45,25,50,25,25,35,205,0,0,2,0,0,0
+15,Beedrill,Beedrill,1,1.0m,29.5kg,Bug,Poison,Swarm,,Sniper,Yellow,50,50,0,15,Bug,,45,198,1000000,Ordinary,,,65,90,40,45,80,75,395,0,2,0,0,1,0
 1,Bulbasaur,Bulbasaur,1,0.7m,6.9kg,Grass,Poison,Overgrow,,Chlorophyll,Green,87.5,12.5,0,20,Monster,Grass,45,64,1059860,Ordinary,,,45,49,49,65,65,45,318,0,0,0,1,0,0
 2,Ivysaur,Ivysaur,1,1.0m,13.0kg,Grass,Poison,Overgrow,,Chlorophyll,Green,87.5,12.5,0,20,Monster,Grass,45,142,1059860,Ordinary,,,60,62,63,80,80,60,405,0,0,0,1,1,0
 3,Venusaur,Venusaur,1,2.0m,100.0kg,Grass,Poison,Overgrow,,Chlorophyll,Green,87.5,12.5,0,20,Monster,Grass,45,263,1059860,Ordinary,,,80,82,83,100,100,80,525,0,0,0,2,1,0
 4,Charmander,Charmander,1,0.6m,8.5kg,Fire,,Blaze,,Solar Power,Red,87.5,12.5,0,20,Monster,Dragon,45,62,1059860,Ordinary,,,39,52,43,60,50,65,309,0,0,0,0,0,1
-5,Charmeleon,Charmeleon,1,1.1m,19.0kg,Fire,,Blaze,,Solar Power,Red,87.5,12.5,0,20,Monster,Dragon,45,142,1059860,Ordinary,,,58,64,58,80,65,80,405,0,0,0,1,0,1
-6,Charizard,Mega Charizard Y,1,1.7m,100.5kg,Fire,Flying,Drought,,,Red,87.5,12.5,0,20,Monster,Dragon,45,285,1059860,Ordinary,Mega,,78,104,78,159,115,100,634,0,0,0,3,0,0
-7,Squirtle,Squirtle,1,0.5m,9.0kg,Water,,Torrent,,Rain Dish,Blue,87.5,12.5,0,20,Monster,Water1,45,63,1059860,Ordinary,,,44,48,65,50,64,43,314,0,0,1,0,0,0
 8,Wartortle,Wartortle,1,1.0m,22.5kg,Water,,Torrent,,Rain Dish,Blue,87.5,12.5,0,20,Monster,Water1,45,142,1059860,Ordinary,,,59,63,80,65,80,58,405,0,0,1,0,1,0
 9,Blastoise,Blastoise,1,1.6m,85.5kg,Water,,Torrent,,Rain Dish,Blue,87.5,12.5,0,20,Monster,Water1,45,265,1059860,Ordinary,,,79,83,100,85,105,78,530,0,0,0,0,3,0
 10,Caterpie,Caterpie,1,0.3m,2.9kg,Bug,,Shield Dust,,Run Away,Green,50,50,0,15,Bug,,255,39,1000000,Ordinary,,,45,30,35,20,20,45,195,1,0,0,0,0,0
-11,Metapod,Metapod,1,0.7m,9.9kg,Bug,,Shed Skin,,,Green,50,50,0,15,Bug,,120,72,1000000,Ordinary,,,50,20,55,25,25,30,205,0,0,2,0,0,0
-12,Butterfree,Butterfree,1,1.1m,32.0kg,Bug,Flying,Compound Eyes,,Tinted Lens,White,50,50,0,15,Bug,,45,198,1000000,Ordinary,,,60,45,50,90,80,70,395,0,0,0,2,1,0
-13,Weedle,Weedle,1,0.3m,3.2kg,Bug,Poison,Shield Dust,,Run Away,Brown,50,50,0,15,Bug,,255,39,1000000,Ordinary,,,40,35,30,20,20,50,195,0,0,0,0,0,1
-14,Kakuna,Kakuna,1,0.6m,10.0kg,Bug,Poison,Shed Skin,,,Yellow,50,50,0,15,Bug,,120,72,1000000,Ordinary,,,45,25,50,25,25,35,205,0,0,2,0,0,0
-15,Beedrill,Beedrill,1,1.0m,29.5kg,Bug,Poison,Swarm,,Sniper,Yellow,50,50,0,15,Bug,,45,198,1000000,Ordinary,,,65,90,40,45,80,75,395,0,2,0,0,1,0

@@ -1,6 +1,4 @@
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -13,7 +11,6 @@ import java.util.List;
 //Juntar as files temporarias em um .db ordenado por ID.
 public class Ordenador{
     long tamanhoTotal;
-    long tamanhoTemp;
     String filePath;
     String tmpDir;
 
@@ -21,7 +18,6 @@ public class Ordenador{
         try {
             Path path = Paths.get(filePath);
             this.tamanhoTotal = Files.size(path);
-            this.tamanhoTemp = tamanhoTotal/4;
             this.filePath = filePath;
             this.tmpDir = System.getProperty("java.io.tmpdir");
         } catch (Exception e) {
@@ -32,23 +28,33 @@ public class Ordenador{
     public void balanceadaComum() throws Exception{
         List<Path> tempFiles = new ArrayList<Path>(1);
         Binario binPai = new Binario(filePath);
-        Binario binFilho;
         long tamanhoPercorrido = 0;
         int contTemps = 0;
         try {
             while(tamanhoPercorrido<tamanhoTotal){
                 Path temp = Files.createTempFile("pokeTemp" + contTemps, ".db");
+                List<Pokedex> pokedex = new ArrayList<Pokedex>(1);
                 tempFiles.add(temp);
                 ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(temp.toString()));
-                ObjectInputStream in = new ObjectInputStream(new FileInputStream(temp.toString()));
-                while(Files.size(temp)<tamanhoTemp){
-                    binFilho.writeToFile(binPai.read());
+                for (int i = 0; i < 4; i++) {
+                    Pokedex entry = binPai.read();
+                    if(entry!=null){
+                        pokedex.add(entry);
+                    }
+                }
+                pokedex.sort((a, b) -> a.getID() - b.getID());
+                for(Pokedex entry : pokedex){
+                    out.writeObject(entry);
                 }
                 tempFiles.add(Paths.get(tmpDir + "temp" + contTemps + ".db"));
                 tamanhoPercorrido += Files.size(temp);
                 contTemps++;
             }
-            
+            int i=0;
+            for (Path path : tempFiles) {
+                System.out.println("Arquivo" + i + ":\n" + path + "\n");
+                i++;
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -56,6 +62,6 @@ public class Ordenador{
     }
 
     public String toString(){
-        return "Tamanho total: " + tamanhoTotal + " bytes\nTamanho temporario: " + tamanhoTemp + " bytes";
+        return "Tamanho total: " + tamanhoTotal + " bytes";
     }
 }

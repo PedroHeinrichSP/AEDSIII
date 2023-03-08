@@ -143,7 +143,6 @@ public class Binario {
         return true;
     }
 
-    // provavel nao funcionar
     public boolean update(int id, Pokedex pokedex) throws IOException {
         try {
             delete(id);
@@ -154,7 +153,6 @@ public class Binario {
         return true;
     }
 
-    // ta dando erro aqui
     public Pokedex seekID(int id) throws IOException {
         this.file = new RandomAccessFile(this.path, "rw");
 
