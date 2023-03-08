@@ -10,7 +10,6 @@ public class Main {
                 File saida = new File("DOCUMENTOS\\saida.txt");
                 PrintStream stream = new PrintStream(saida);
                 System.setOut(stream); // Redireciona a saída padrão para o arquivo
-                
 
                 Pokedex aux;
                 Binario bin = new Binario("DOCUMENTOS\\pokedex.db");

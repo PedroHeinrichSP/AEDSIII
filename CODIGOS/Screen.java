@@ -87,13 +87,13 @@ public class Screen extends JFrame {
 
 		importCSV.addActionListener(e -> {
 			try {
-				bin = new Binario(path);
 				bin.clear();
 				pokedex = parser.leitura(miniDex);
-
+				System.out.println();
                 for (Pokedex p : pokedex) {
                         bin.writeToFile(p);
                 }
+				System.out.println(ord.toString());
 
 			} catch (Exception e1) {
 				e1.printStackTrace();
@@ -166,5 +166,6 @@ public class Screen extends JFrame {
 	String path = "DOCUMENTOS\\pokedex.db";
 	List<Pokedex> pokedex;
 	Pokedex aux;
-	Binario bin;
+	Binario bin = new Binario(path);
+	Ordenador ord =	new Ordenador(path);
 }

@@ -27,7 +27,6 @@ public class Binario {
     /**
      * Constroi o arquivo binário de uma pokedex
      * 
-     * @param path    Caminho do arquivo
      * @param pokedex Lista de pokemons
      */
     public void writePokedexToFile(List<Pokedex> pokedex) throws IOException {
