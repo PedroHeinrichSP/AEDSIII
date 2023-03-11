@@ -168,7 +168,7 @@ public class Screen extends JFrame {
 	Parser parser = new Parser();
 	File miniDex = new File("DOCUMENTOS\\miniDex.csv");
 	File pokeDex = new File("DOCUMENTOS\\Pokedex.csv");
-	String path = "DOCUMENTOS\\pokedex.db";
+	String path = "DATA\\pokedex.db";
 	List<Pokedex> pokedex;
 	Pokedex aux;
 	Binario bin = new Binario(path);

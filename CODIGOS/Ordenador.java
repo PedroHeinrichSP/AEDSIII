@@ -54,7 +54,7 @@ public class Ordenador {
                 System.out.println("Entradas lidas: ");
                 for (int i = 0; i < 4; i++) {
                     Pokedex entry = binPai.read();
-                    System.out.print(i+", ");
+                    System.out.print(i + ", ");
                     if (entry != null) {
                         pokedex.add(entry);
                     }
@@ -74,8 +74,9 @@ public class Ordenador {
                         + tamanhoTotal + " bytes");
             }
             System.out.println("entry" + entrySize);
-            //debug(inStreams);
-            List <Pokedex> pokeList = pokeListInitializer(inStreams);;
+            // debug(inStreams);
+            List<Pokedex> pokeList = pokeListInitializer(inStreams);
+            ;
             intercalacao(tempFiles, binPai, entrySize, outStreams, inStreams, pokeList);
         } catch (Exception e) {
             e.printStackTrace();
@@ -86,7 +87,8 @@ public class Ordenador {
         }
     }
 
-    private void intercalacao(List<Path> tempFiles, Binario binPai, int entrySize, List <ObjectOutputStream> oosList, List<ObjectInputStream> oisList, List<Pokedex> pokedexList) throws Exception {
+    private void intercalacao(List<Path> tempFiles, Binario binPai, int entrySize, List<ObjectOutputStream> oosList,
+            List<ObjectInputStream> oisList, List<Pokedex> pokedexList) throws Exception {
         List<Path> tempFiles2 = new ArrayList<Path>(1);
         List<ObjectInputStream> oisList2 = new ArrayList<ObjectInputStream>(1);
         List<ObjectOutputStream> oosList2 = new ArrayList<ObjectOutputStream>(1);
@@ -107,7 +109,7 @@ public class Ordenador {
             int lidos = 0;
             int indexTemp = 0;
             while (lidos < (tamanhoBloco * 4)) {
-                while(lidos < tamanhoBloco){
+                while (lidos < tamanhoBloco) {
                     Pokedex menor = pokedexList.get(0);
                     int index = 0;
                     for (int i = 0; i < tamanhoBloco; i++) {
@@ -116,7 +118,7 @@ public class Ordenador {
                             index = i;
                         }
                     }
-                    if(!flagOos){
+                    if (!flagOos) {
                         oosList.get(indexTemp).writeObject(menor);
                         try {
                             pokedexList.set(index, (Pokedex) oisList.get(index).readObject());
@@ -124,7 +126,7 @@ public class Ordenador {
                             pokedexList.remove(index);
                             oisList.remove(index);
                         }
-                    }else{
+                    } else {
                         oosList2.get(indexTemp).writeObject(menor);
                         try {
                             pokedexList.set(index, (Pokedex) oisList2.get(index).readObject());
@@ -132,7 +134,8 @@ public class Ordenador {
                             pokedexList.remove(index);
                             oisList2.remove(index);
                         }
-                    }lidos++;
+                    }
+                    lidos++;
                     try {
                         pokedexList.set(index, (Pokedex) oisList.get(index).readObject());
                     } catch (Exception e) {
@@ -156,11 +159,11 @@ public class Ordenador {
         return "Tamanho total: " + tamanhoTotal + " bytes";
     }
 
-    private void debug (List<ObjectInputStream> inList) throws Exception {
-        int i=0; 
+    private void debug(List<ObjectInputStream> inList) throws Exception {
+        int i = 0;
         for (ObjectInputStream in : inList) {
             System.out.println("Arquivo" + i + ":\n");
-            while(true){
+            while (true) {
                 try {
                     Pokedex aux = (Pokedex) in.readObject();
                     System.out.println(aux);
@@ -172,12 +175,12 @@ public class Ordenador {
         }
     }
 
-    private List<Pokedex> pokeListInitializer (List<ObjectInputStream> inList) throws Exception {
-        int i=0; 
-        List <Pokedex> pokedexList = new ArrayList<Pokedex>(1);
+    private List<Pokedex> pokeListInitializer(List<ObjectInputStream> inList) throws Exception {
+        int i = 0;
+        List<Pokedex> pokedexList = new ArrayList<Pokedex>(1);
         for (ObjectInputStream in : inList) {
             System.out.println("Arquivo" + i + ":\n");
-            while(true){
+            while (true) {
                 try {
                     Pokedex aux = (Pokedex) in.readObject();
                     pokedexList.add(aux);
