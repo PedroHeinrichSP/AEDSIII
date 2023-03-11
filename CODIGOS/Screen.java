@@ -93,7 +93,12 @@ public class Screen extends JFrame {
                 for (Pokedex p : pokedex) {
                         bin.writeToFile(p);
                 }
-				System.out.println(ord.toString());
+				System.out.println("BINPAI");
+				while ((aux = bin.read()) != null) {
+					System.out.println(aux);
+				}
+				System.out.println("TEMPS");
+				ord.balanceadaComum();
 
 			} catch (Exception e1) {
 				e1.printStackTrace();

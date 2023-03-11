@@ -3,13 +3,14 @@ import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class Pokedex {
+public class Pokedex implements Serializable{
     /*
      * N° (ID - número da pokedex) - tipo Inteiro (short)
      * Name (Nome - Nome do Pokemon, formas diferentes incluídas) - tipo Fixo

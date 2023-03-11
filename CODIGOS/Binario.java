@@ -182,4 +182,9 @@ public class Binario {
             return null;
         }
     }
+    
+    public boolean isEOF() throws IOException {
+        this.file = new RandomAccessFile(this.path, "rw");
+        return posicao < this.file.length();
+    }
 }
