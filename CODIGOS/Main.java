@@ -4,7 +4,7 @@ import java.io.PrintStream;
 
 public class Main extends nuqelar {
 
-        public static void main(String[] args) throws IOException {
+        public static void main(String[] args) throws Exception {
                 // new Screen();
                 // Saída (Saida num arquivo em txt)
                 File saida = new File("DATA\\saida.txt");
@@ -13,7 +13,6 @@ public class Main extends nuqelar {
                 System.setOut(stream); // Redireciona a saída padrão para o arquivo
 
                 runNuqelarTest();
-
         }
 
 }

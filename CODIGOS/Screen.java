@@ -90,9 +90,9 @@ public class Screen extends JFrame {
 				bin.clear();
 				pokedex = parser.leitura(miniDex);
 				System.out.println();
-                for (Pokedex p : pokedex) {
-                        bin.writeToFile(p);
-                }
+				for (Pokedex p : pokedex) {
+					bin.writeToFile(p);
+				}
 				System.out.println("BINPAI");
 				while ((aux = bin.read()) != null) {
 					System.out.println(aux);
@@ -111,13 +111,15 @@ public class Screen extends JFrame {
 				int id = Integer.parseInt(idCampo.getText());
 				aux = bin.seekID(id);
 				if (aux != null)
-					ID.setText(aux.toString());	
-				else 
+					ID.setText(aux.toString());
+				else
 					ID.setText("ID não encontrado");
-				/*System.out.println("ID LIDO:" + aux.toString() + "\n Binário:");
-				while ((aux = bin.read()) != null) {
-					System.out.println(aux);
-				}*/
+				/*
+				 * System.out.println("ID LIDO:" + aux.toString() + "\n Binário:");
+				 * while ((aux = bin.read()) != null) {
+				 * System.out.println(aux);
+				 * }
+				 */
 			} catch (Exception e2) {
 				e2.printStackTrace();
 			}
@@ -129,12 +131,12 @@ public class Screen extends JFrame {
 				aux = bin.seekID(id);
 				UptadeScreen uptadeScreen = new UptadeScreen(aux, id, this);
 				uptadeScreen.setVisible(true);
-				
+
 				// window listener for when updateScreen is closed
 				uptadeScreen.addWindowListener(new java.awt.event.WindowAdapter() {
 					@Override
 					public void windowClosed(java.awt.event.WindowEvent windowEvent) {
-						//lê da entrada aux ID.setText(aux.toString());
+						// lê da entrada aux ID.setText(aux.toString());
 						try {
 							bin.update(id, aux);
 						} catch (Exception e1) {
@@ -156,7 +158,6 @@ public class Screen extends JFrame {
 		});
 	}
 
-
 	private JButton importCSV;
 	private JLabel Pokemon;
 	private JButton readID;
@@ -172,5 +173,5 @@ public class Screen extends JFrame {
 	List<Pokedex> pokedex;
 	Pokedex aux;
 	Binario bin = new Binario(path);
-	Ordenador ord =	new Ordenador(path);
+	Ordenador ord = new Ordenador(path);
 }

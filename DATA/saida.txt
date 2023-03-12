@@ -1,36 +1,33 @@
 Running nuqelar test
-
-
-Atualizado
-ID: 29 | Name: Nidoran F | Generation: ter. fev. 27 20:01:03 BRT 1996 | Height: 0.4m | Weight: 7.0kg | Type: [Poison, ] | Category: Ordinary | Mega Evolution: false | TOTAL: 275
-ID: 30 | Name: Nidorina | Generation: ter. fev. 27 20:01:03 BRT 1996 | Height: 0.8m | Weight: 20.0kg | Type: [Poison, ] | Category: Ordinary | Mega Evolution: false | TOTAL: 365
-ID: 31 | Name: Nidoqueen | Generation: ter. fev. 27 20:01:03 BRT 1996 | Height: 1.3m | Weight: 60.0kg | Type: [Poison, Ground] | Category: Ordinary | Mega Evolution: false | TOTAL: 505
-ID: 5 | Name: Charmeleon | Generation: ter. fev. 27 20:01:03 BRT 1996 | Height: 1.1m | Weight: 19.0kg | Type: [Fire, ] | Category: Ordinary | Mega Evolution: false | TOTAL: 405
-ID: 12 | Name: Butterfree | Generation: ter. fev. 27 20:01:03 BRT 1996 | Height: 1.1m | Weight: 32.0kg | Type: [Bug, Flying] | Category: Ordinary | Mega Evolution: false | TOTAL: 395
-ID: 6 | Name: Mega Charizard Y | Generation: ter. fev. 27 20:01:03 BRT 1996 | Height: 1.7m | Weight: 100.5kg | Type: [Fire, Flying] | Category: Ordinary | Mega Evolution: true | TOTAL: 634
-ID: 7 | Name: Squirtle | Generation: ter. fev. 27 20:01:03 BRT 1996 | Height: 0.5m | Weight: 9.0kg | Type: [Water, ] | Category: Ordinary | Mega Evolution: false | TOTAL: 314
-ID: 24 | Name: Arbok | Generation: ter. fev. 27 20:01:03 BRT 1996 | Height: 3.5m | Weight: 65.0kg | Type: [Poison, ] | Category: Ordinary | Mega Evolution: false | TOTAL: 448
-ID: 25 | Name: Pikachu | Generation: ter. fev. 27 20:01:03 BRT 1996 | Height: 0.4m | Weight: 6.0kg | Type: [Electric, ] | Category: Ordinary | Mega Evolution: false | TOTAL: 320
-ID: 11 | Name: Metapod | Generation: ter. fev. 27 20:01:03 BRT 1996 | Height: 0.7m | Weight: 9.9kg | Type: [Bug, ] | Category: Ordinary | Mega Evolution: false | TOTAL: 205
-ID: 13 | Name: Weedle | Generation: ter. fev. 27 20:01:03 BRT 1996 | Height: 0.3m | Weight: 3.2kg | Type: [Bug, Poison] | Category: Ordinary | Mega Evolution: false | TOTAL: 195
-ID: 14 | Name: Kakuna | Generation: ter. fev. 27 20:01:03 BRT 1996 | Height: 0.6m | Weight: 10.0kg | Type: [Bug, Poison] | Category: Ordinary | Mega Evolution: false | TOTAL: 205
-ID: 15 | Name: Beedrill | Generation: ter. fev. 27 20:01:03 BRT 1996 | Height: 1.0m | Weight: 29.5kg | Type: [Bug, Poison] | Category: Ordinary | Mega Evolution: false | TOTAL: 395
-ID: 21 | Name: Spearow | Generation: ter. fev. 27 20:01:03 BRT 1996 | Height: 0.3m | Weight: 2.0kg | Type: [Normal, Flying] | Category: Ordinary | Mega Evolution: false | TOTAL: 262
-ID: 22 | Name: Fearow | Generation: ter. fev. 27 20:01:03 BRT 1996 | Height: 1.2m | Weight: 38.0kg | Type: [Normal, Flying] | Category: Ordinary | Mega Evolution: false | TOTAL: 442
-ID: 23 | Name: Ekans | Generation: ter. fev. 27 20:01:03 BRT 1996 | Height: 2.0m | Weight: 6.9kg | Type: [Poison, ] | Category: Ordinary | Mega Evolution: false | TOTAL: 288
-ID: 1 | Name: Bulbasaur | Generation: ter. fev. 27 20:01:03 BRT 1996 | Height: 0.7m | Weight: 6.9kg | Type: [Grass, Poison] | Category: Ordinary | Mega Evolution: false | TOTAL: 318
-ID: 2 | Name: Ivysaur | Generation: ter. fev. 27 20:01:03 BRT 1996 | Height: 1.0m | Weight: 13.0kg | Type: [Grass, Poison] | Category: Ordinary | Mega Evolution: false | TOTAL: 405
-ID: 3 | Name: Venusaur | Generation: ter. fev. 27 20:01:03 BRT 1996 | Height: 2.0m | Weight: 100.0kg | Type: [Grass, Poison] | Category: Ordinary | Mega Evolution: false | TOTAL: 525
-ID: 19 | Name: Rattata | Generation: ter. fev. 27 20:01:03 BRT 1996 | Height: 0.3m | Weight: 3.5kg | Type: [Normal, ] | Category: Ordinary | Mega Evolution: false | TOTAL: 253
-ID: 20 | Name: Raticate | Generation: ter. fev. 27 20:01:03 BRT 1996 | Height: 0.7m | Weight: 18.5kg | Type: [Normal, ] | Category: Ordinary | Mega Evolution: false | TOTAL: 413
-ID: 4 | Name: Charmander | Generation: ter. fev. 27 20:01:03 BRT 1996 | Height: 0.6m | Weight: 8.5kg | Type: [Fire, ] | Category: Ordinary | Mega Evolution: false | TOTAL: 309
-ID: 8 | Name: Wartortle | Generation: ter. fev. 27 20:01:03 BRT 1996 | Height: 1.0m | Weight: 22.5kg | Type: [Water, ] | Category: Ordinary | Mega Evolution: false | TOTAL: 405
-ID: 9 | Name: Blastoise | Generation: ter. fev. 27 20:01:03 BRT 1996 | Height: 1.6m | Weight: 85.5kg | Type: [Water, ] | Category: Ordinary | Mega Evolution: false | TOTAL: 530
-ID: 16 | Name: Pidgey | Generation: ter. fev. 27 20:01:03 BRT 1996 | Height: 0.3m | Weight: 1.8kg | Type: [Normal, Flying] | Category: Ordinary | Mega Evolution: false | TOTAL: 251
-ID: 17 | Name: Pidgeotto | Generation: ter. fev. 27 20:01:03 BRT 1996 | Height: 1.1m | Weight: 30.0kg | Type: [Normal, Flying] | Category: Ordinary | Mega Evolution: false | TOTAL: 349
-ID: 18 | Name: Pidgeot | Generation: ter. fev. 27 20:01:03 BRT 1996 | Height: 1.5m | Weight: 39.5kg | Type: [Normal, Flying] | Category: Ordinary | Mega Evolution: false | TOTAL: 479
-ID: 10 | Name: Caterpie | Generation: ter. fev. 27 20:01:03 BRT 1996 | Height: 0.3m | Weight: 2.9kg | Type: [Bug, ] | Category: Ordinary | Mega Evolution: false | TOTAL: 195
-ID: 26 | Name: Raichu | Generation: ter. fev. 27 20:01:03 BRT 1996 | Height: 0.8m | Weight: 30.0kg | Type: [Electric, ] | Category: Ordinary | Mega Evolution: false | TOTAL: 485
-ID: 27 | Name: Sandshrew | Generation: ter. fev. 27 20:01:03 BRT 1996 | Height: 0.6m | Weight: 12.0kg | Type: [Ground, ] | Category: Ordinary | Mega Evolution: false | TOTAL: 300
-ID: 28 | Name: Sandslash | Generation: ter. fev. 27 20:01:03 BRT 1996 | Height: 1.0m | Weight: 29.5kg | Type: [Ground, ] | Category: Ordinary | Mega Evolution: false | TOTAL: 450
+ID: 1 | Name: Bulbasaur | Generation: ter. fev. 27 23:49:34 BRT 1996 | Height: 0.7m | Weight: 6.9kg | Type: [Grass, Poison] | Category: Ordinary | Mega Evolution: false | TOTAL: 318
+ID: 2 | Name: Ivysaur | Generation: ter. fev. 27 23:49:34 BRT 1996 | Height: 1.0m | Weight: 13.0kg | Type: [Grass, Poison] | Category: Ordinary | Mega Evolution: false | TOTAL: 405
+ID: 3 | Name: Venusaur | Generation: ter. fev. 27 23:49:34 BRT 1996 | Height: 2.0m | Weight: 100.0kg | Type: [Grass, Poison] | Category: Ordinary | Mega Evolution: false | TOTAL: 525
+ID: 4 | Name: Charmander | Generation: ter. fev. 27 23:49:34 BRT 1996 | Height: 0.6m | Weight: 8.5kg | Type: [Fire, ] | Category: Ordinary | Mega Evolution: false | TOTAL: 309
+ID: 5 | Name: Charmeleon | Generation: ter. fev. 27 23:49:34 BRT 1996 | Height: 1.1m | Weight: 19.0kg | Type: [Fire, ] | Category: Ordinary | Mega Evolution: false | TOTAL: 405
+ID: 6 | Name: Mega Charizard Y | Generation: ter. fev. 27 23:49:34 BRT 1996 | Height: 1.7m | Weight: 100.5kg | Type: [Fire, Flying] | Category: Ordinary | Mega Evolution: true | TOTAL: 634
+ID: 7 | Name: Squirtle | Generation: ter. fev. 27 23:49:34 BRT 1996 | Height: 0.5m | Weight: 9.0kg | Type: [Water, ] | Category: Ordinary | Mega Evolution: false | TOTAL: 314
+ID: 8 | Name: Wartortle | Generation: ter. fev. 27 23:49:34 BRT 1996 | Height: 1.0m | Weight: 22.5kg | Type: [Water, ] | Category: Ordinary | Mega Evolution: false | TOTAL: 405
+ID: 9 | Name: Blastoise | Generation: ter. fev. 27 23:49:34 BRT 1996 | Height: 1.6m | Weight: 85.5kg | Type: [Water, ] | Category: Ordinary | Mega Evolution: false | TOTAL: 530
+ID: 10 | Name: Caterpie | Generation: ter. fev. 27 23:49:34 BRT 1996 | Height: 0.3m | Weight: 2.9kg | Type: [Bug, ] | Category: Ordinary | Mega Evolution: false | TOTAL: 195
+ID: 11 | Name: Metapod | Generation: ter. fev. 27 23:49:34 BRT 1996 | Height: 0.7m | Weight: 9.9kg | Type: [Bug, ] | Category: Ordinary | Mega Evolution: false | TOTAL: 205
+ID: 12 | Name: Butterfree | Generation: ter. fev. 27 23:49:34 BRT 1996 | Height: 1.1m | Weight: 32.0kg | Type: [Bug, Flying] | Category: Ordinary | Mega Evolution: false | TOTAL: 395
+ID: 13 | Name: Weedle | Generation: ter. fev. 27 23:49:34 BRT 1996 | Height: 0.3m | Weight: 3.2kg | Type: [Bug, Poison] | Category: Ordinary | Mega Evolution: false | TOTAL: 195
+ID: 14 | Name: Kakuna | Generation: ter. fev. 27 23:49:34 BRT 1996 | Height: 0.6m | Weight: 10.0kg | Type: [Bug, Poison] | Category: Ordinary | Mega Evolution: false | TOTAL: 205
+ID: 15 | Name: Beedrill | Generation: ter. fev. 27 23:49:34 BRT 1996 | Height: 1.0m | Weight: 29.5kg | Type: [Bug, Poison] | Category: Ordinary | Mega Evolution: false | TOTAL: 395
+ID: 16 | Name: Pidgey | Generation: ter. fev. 27 23:49:34 BRT 1996 | Height: 0.3m | Weight: 1.8kg | Type: [Normal, Flying] | Category: Ordinary | Mega Evolution: false | TOTAL: 251
+ID: 17 | Name: Pidgeotto | Generation: ter. fev. 27 23:49:34 BRT 1996 | Height: 1.1m | Weight: 30.0kg | Type: [Normal, Flying] | Category: Ordinary | Mega Evolution: false | TOTAL: 349
+ID: 18 | Name: Pidgeot | Generation: ter. fev. 27 23:49:34 BRT 1996 | Height: 1.5m | Weight: 39.5kg | Type: [Normal, Flying] | Category: Ordinary | Mega Evolution: false | TOTAL: 479
+ID: 19 | Name: Rattata | Generation: ter. fev. 27 23:49:34 BRT 1996 | Height: 0.3m | Weight: 3.5kg | Type: [Normal, ] | Category: Ordinary | Mega Evolution: false | TOTAL: 253
+ID: 20 | Name: Raticate | Generation: ter. fev. 27 23:49:34 BRT 1996 | Height: 0.7m | Weight: 18.5kg | Type: [Normal, ] | Category: Ordinary | Mega Evolution: false | TOTAL: 413
+ID: 21 | Name: Spearow | Generation: ter. fev. 27 23:49:34 BRT 1996 | Height: 0.3m | Weight: 2.0kg | Type: [Normal, Flying] | Category: Ordinary | Mega Evolution: false | TOTAL: 262
+ID: 22 | Name: Fearow | Generation: ter. fev. 27 23:49:34 BRT 1996 | Height: 1.2m | Weight: 38.0kg | Type: [Normal, Flying] | Category: Ordinary | Mega Evolution: false | TOTAL: 442
+ID: 23 | Name: Ekans | Generation: ter. fev. 27 23:49:34 BRT 1996 | Height: 2.0m | Weight: 6.9kg | Type: [Poison, ] | Category: Ordinary | Mega Evolution: false | TOTAL: 288
+ID: 24 | Name: Arbok | Generation: ter. fev. 27 23:49:34 BRT 1996 | Height: 3.5m | Weight: 65.0kg | Type: [Poison, ] | Category: Ordinary | Mega Evolution: false | TOTAL: 448
+ID: 25 | Name: Pikachu | Generation: ter. fev. 27 23:49:34 BRT 1996 | Height: 0.4m | Weight: 6.0kg | Type: [Electric, ] | Category: Ordinary | Mega Evolution: false | TOTAL: 320
+ID: 26 | Name: Raichu | Generation: ter. fev. 27 23:49:34 BRT 1996 | Height: 0.8m | Weight: 30.0kg | Type: [Electric, ] | Category: Ordinary | Mega Evolution: false | TOTAL: 485
+ID: 27 | Name: Sandshrew | Generation: ter. fev. 27 23:49:34 BRT 1996 | Height: 0.6m | Weight: 12.0kg | Type: [Ground, ] | Category: Ordinary | Mega Evolution: false | TOTAL: 300
+ID: 28 | Name: Sandslash | Generation: ter. fev. 27 23:49:34 BRT 1996 | Height: 1.0m | Weight: 29.5kg | Type: [Ground, ] | Category: Ordinary | Mega Evolution: false | TOTAL: 450
+ID: 29 | Name: Nidoran F | Generation: ter. fev. 27 23:49:34 BRT 1996 | Height: 0.4m | Weight: 7.0kg | Type: [Poison, ] | Category: Ordinary | Mega Evolution: false | TOTAL: 275
+ID: 30 | Name: Nidorina | Generation: ter. fev. 27 23:49:34 BRT 1996 | Height: 0.8m | Weight: 20.0kg | Type: [Poison, ] | Category: Ordinary | Mega Evolution: false | TOTAL: 365
+ID: 31 | Name: Nidoqueen | Generation: ter. fev. 27 23:49:34 BRT 1996 | Height: 1.3m | Weight: 60.0kg | Type: [Poison, Ground] | Category: Ordinary | Mega Evolution: false | TOTAL: 505
 Test Finished
