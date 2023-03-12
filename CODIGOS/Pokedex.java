@@ -1,8 +1,16 @@
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class Pokedex {
+public class Pokedex implements Serializable{
     /*
      * N° (ID - número da pokedex) - tipo Inteiro (short)
      * Name (Nome - Nome do Pokemon, formas diferentes incluídas) - tipo Fixo
@@ -128,7 +136,8 @@ public class Pokedex {
 
     // toString
     public String toString() {
-        return "ID: " + this.ID + " | Name: " + this.Name + " | Generation: " + this.Generation + " | Height: "
+        DateFormat format = new SimpleDateFormat("EEE MMM dd kk:mm:ss zzz yyyy");    
+        return "ID: " + this.ID + " | Name: " + this.Name + " | Generation: " + format.format(Generation) + " | Height: "
                 + this.Height + "m | Weight: " + this.Weight + "kg | Type: " + this.Type + " | Category: "
                 + byteCatToString(this.Category) + " | Mega Evolution: " + this.Mega_Evolution_Flag
                 + " | TOTAL: " + this.TOTAL;
@@ -161,13 +170,7 @@ public class Pokedex {
 
     // compareTo
     public int compareTo(Pokedex p) {
-        if (this.ID > p.ID) {
-            return 1;
-        } else if (this.ID < p.ID) {
-            return -1;
-        } else {
-            return 0;
-        }
+        return this.ID - p.ID;
     }
 
     // isMega
@@ -212,4 +215,47 @@ public class Pokedex {
                 return "Ordinary";
         }
     }
+
+    // getBytes to use randomAccessFile
+    public byte[] toByteArray() throws IOException {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        DataOutputStream dos = new DataOutputStream(baos);
+
+        dos.writeShort(this.ID);
+        dos.writeUTF(this.Name);
+        dos.writeLong(this.Generation.getTime());
+        dos.writeFloat(this.Height);
+        dos.writeFloat(this.Weight);
+
+        dos.writeByte(this.Type.size());
+        for (String type : this.Type) {
+            dos.writeUTF(type);
+        }
+
+        dos.writeByte(this.Category);
+        dos.writeBoolean(this.Mega_Evolution_Flag);
+        dos.writeInt(this.TOTAL);
+        return baos.toByteArray();
+    }
+
+    public void fromByteArray(byte[] b) throws IOException {
+        ByteArrayInputStream bais = new ByteArrayInputStream(b);
+        DataInputStream dis = new DataInputStream(bais);
+
+        this.ID = dis.readShort();
+        this.Name = dis.readUTF();
+        this.Generation = new Date(dis.readLong());
+        this.Height = dis.readFloat();
+        this.Weight = dis.readFloat();
+
+        byte length = dis.readByte();
+        for (byte i = 0; i < length; i++) {
+            this.Type.add(dis.readUTF());
+        }
+
+        this.Category = dis.readByte();
+        this.Mega_Evolution_Flag = dis.readBoolean();
+        this.TOTAL = dis.readInt();
+    }
+
 }

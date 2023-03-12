@@ -7,7 +7,7 @@
 > ### PASTAS
 >
 >>
->> ![Logo Pokemon](DOCUMENTOS/International_Pok%C3%A9mon_logo.svg.png)
+>> ![Logo Pokemon](DOCUMENTOS/International_Pokemon_logo.svg.png)
 >>
 >> *DOCUMENTOS* - Documentos gerais relacionados ao trabalho usadas 
 >

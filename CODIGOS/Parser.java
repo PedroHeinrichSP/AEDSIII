@@ -26,7 +26,8 @@ public class Parser {
                 int j = 0;
                 Pokedex aux = new Pokedex();
                 for (String column : line) {
-                    //Debug: System.out.println("Linha: " + i + " Coluna: " + j + " Valor: " + column);
+                    // Debug: System.out.println("Linha: " + i + " Coluna: " + j + " Valor: " +
+                    // column);
                     String numeric; // Variável auxiliar para conversão de String para Float
                     switch (j) {
                         case 0: // ID
@@ -74,7 +75,20 @@ public class Parser {
         } catch (CsvValidationException e) {
             e.printStackTrace();
         }
-        System.out.println();
+        // System.out.println();
         return pokedex;
+    }
+
+    // Debug: Leitura do CSV
+    public void readCsv(File file) throws IOException, CsvValidationException {
+        CSVReader reader = new CSVReader(new FileReader(file));
+        String[] line;
+
+        while ((line = reader.readNext()) != null) {
+            for (String column : line) {
+                System.out.print(column + " ");
+            }
+            System.out.println();
+        }
     }
 }
