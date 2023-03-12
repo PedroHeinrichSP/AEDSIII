@@ -15,11 +15,15 @@
 >
 >> *BIBLIOTECAS* - Bibliotecas usadas no trabalho
 >
+>> *DATA* - Arquivos criados durante a execução do programa
+>
 >> *.vscode* - Arquivos de configuração do *Visual Studio Code*
 
 ---
 
 **[Pedro Heinrich Sales Pena](https://github.com/PedroHeinrichSP) | [Augusto Scardua Oliveira](https://github.com/Azugot)**
+
+**[Vídeo de apresentação](https://github.com/PedroHeinrichSP)**
 
 ---
 
