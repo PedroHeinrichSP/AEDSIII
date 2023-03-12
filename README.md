@@ -23,7 +23,7 @@
 
 **[Pedro Heinrich Sales Pena](https://github.com/PedroHeinrichSP) | [Augusto Scardua Oliveira](https://github.com/Azugot)**
 
-**[Vídeo de apresentação](https://github.com/PedroHeinrichSP)**
+**[Vídeo de apresentação](https://youtu.be/e6J6fer4Hjo)**
 
 ---
 
