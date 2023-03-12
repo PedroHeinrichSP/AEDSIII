@@ -4,19 +4,20 @@ import java.util.List;
 import javax.swing.*;
 import net.miginfocom.swing.*;
 
-/**
- * @author marco
- */
 public class Screen extends JFrame {
-    public Screen() {
-        initComponents();
-    }
+	public Screen() {
+		initComponents();
+	}
 
-    private void initComponents() {
-        setVisible(true);
+	private void initComponents() {
+
+		// Variáveis de tela
+		setVisible(true);
 		setLocationRelativeTo(null);
 		setMinimumSize(new Dimension(800, 600));
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		// Init dos componentes
 		importCSV = new JButton();
 		Pokemon = new JLabel();
 		readID = new JButton();
@@ -25,88 +26,113 @@ public class Screen extends JFrame {
 		idCampo = new JTextField();
 		textArea1 = new JTextArea();
 		deleteID = new JButton();
+		ordMenu = new JButton();
+
+		// ======== this ========
 		Container contentPane = getContentPane();
 		contentPane.setLayout(new MigLayout(
-			"fill,hidemode 3,align center center",
-			// columns
-			"[fill]" +
-			"[fill]" +
-			"[fill]" +
-			"[fill]" +
-			"[fill]" +
-			"[fill]" +
-			"[fill]" +
-			"[fill]" +
-			"[fill]",
-			// rows
-			"[]" +
-			"[]" +
-			"[]" +
-			"[]" +
-			"[]" +
-			"[]" +
-			"[]"));
+				"fill,hidemode 3,align center center",
+				// columns
+				"[fill]" +
+						"[fill]" +
+						"[fill]" +
+						"[fill]" +
+						"[fill]" +
+						"[fill]" +
+						"[fill]" +
+						"[fill]" +
+						"[fill]",
+				// rows
+				"[]" +
+						"[]" +
+						"[]" +
+						"[]" +
+						"[]" +
+						"[]" +
+						"[]"));
 
-		//---- importCSV ----
+		// ---- importCSV ----
 		importCSV.setText("Importar o CSV...");
 		contentPane.add(importCSV, "cell 1 1");
 
-		//---- Pokemon ----
-		Pokemon.setIcon(new ImageIcon("D:\\AEDSIII\\DOCUMENTOS\\International_Pok\u00e9mon_logo.svg.png"));
+		// ---- Pokemon ----
+		Pokemon.setIcon(new ImageIcon("DOCUMENTOS\\International_Pokemon_logo.png"));
 		contentPane.add(Pokemon, "cell 7 0 1 3,align center center,grow 0 0");
 
-		//---- readID ----
+		// ---- readID ----
 		readID.setText("Ler um registro (ID)");
 		contentPane.add(readID, "cell 1 3");
 
-		//---- updateID ----
+		// ---- updateID ----
 		updateID.setText("Atualizar um registro (ID)");
 		contentPane.add(updateID, "cell 1 4");
 
-		//---- ID ----
+		// ---- ID ----
+		ID.setVisible(false);
 		ID.setEditable(false);
-        ID.setLineWrap(true);
-        ID.setWrapStyleWord(true);
+		ID.setLineWrap(true);
+		ID.setWrapStyleWord(true);
 		contentPane.add(ID, "cell 3 1 3 5,growy");
 
-		//---- idCampo ----
+		// ---- idCampo ----
 		idCampo.setToolTipText("ID");
 		contentPane.add(idCampo, "cell 1 2,growy");
 
-		//---- textArea1 ----
+		// ---- textArea1 ----
 		textArea1.setText("Por Pedro Heinrich e Augusto Scardua");
 		contentPane.add(textArea1, "cell 7 4,align center center,grow 0 0");
 
-		//---- deleteID ----
+		// ---- deleteID ----
 		deleteID.setText("Deletar um registro (ID)");
 		contentPane.add(deleteID, "cell 1 5");
 		pack();
 		setLocationRelativeTo(getOwner());
 
-        importCSV.addActionListener(e -> {
-            try {
-                pokedex = p.leitura(csvFile);
-            } catch (Exception e1) {
-                e1.printStackTrace();
-            }
-        });
-        
-        readID.addActionListener(e -> {
-            try {
-                String id = idCampo.getText();
-                for (Pokedex entry : pokedex) {
-                    if (Short.parseShort(id) == entry.getID()) {
-                        ID.setText(entry.toString());
-                    }
-                }
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }      
-        });
+		importCSV.addActionListener(e -> {
+			try {
+				bin.clear();
+				pokedex = parser.leitura(miniDex);
+				for (Pokedex p : pokedex) {
+					bin.writeToFile(p);
+				}
+			} catch (Exception e1) {
+				e1.printStackTrace();
+			}
+		});
+
+		readID.addActionListener(e -> {
+			try {
+				ID.setVisible(true);
+				int id = Integer.parseInt(idCampo.getText());
+				aux = bin.seekID(id);
+				if (aux != null)
+					ID.setText(aux.toString());
+				else
+					ID.setText("ID não encontrado");
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		});
 
 		updateID.addActionListener(e -> {
 			try {
-				Binario.writePokedexToFile("DOCUMENTOS\\saida.db", pokedex);
+				int id = Integer.parseInt(idCampo.getText());
+				aux = bin.seekID(id);
+				UptadeScreen uptadeScreen = new UptadeScreen(aux, id, this);
+				uptadeScreen.setVisible(true);
+
+				// window listener for when updateScreen is closed
+				uptadeScreen.addWindowListener(new java.awt.event.WindowAdapter() {
+					@Override
+					public void windowClosed(java.awt.event.WindowEvent windowEvent) {
+						// lê da entrada aux ID.setText(aux.toString());
+						try {
+							bin.update(id, aux);
+						} catch (Exception e1) {
+							e1.printStackTrace();
+						}
+					}
+				});
 			} catch (Exception e3) {
 				e3.printStackTrace();
 			}
@@ -114,14 +140,30 @@ public class Screen extends JFrame {
 
 		deleteID.addActionListener(e -> {
 			try {
-				Binario.readFile("DOCUMENTOS\\saida.db");
+				bin.delete(Integer.parseInt(idCampo.getText()));
 			} catch (Exception e4) {
 				e4.printStackTrace();
 			}
 		});
-    }
 
-    private JButton importCSV;
+		//---- ordMenu ----
+		ordMenu.setText("Menu de ordena\u00e7\u00e3o");
+		ordMenu.setToolTipText("Cria o .db com base no CSV");
+		contentPane.add(ordMenu, "cell 7 5");
+		pack();
+		setLocationRelativeTo(getOwner());
+
+		ordMenu.addActionListener(e -> {
+			try {
+				OrdemScreen ordScreen = new OrdemScreen(this);
+				ordScreen.setMinimumSize(this.getMinimumSize());
+			} catch (Exception e5) {
+				e5.printStackTrace();
+			}
+		});
+	}
+
+	private JButton importCSV;
 	private JLabel Pokemon;
 	private JButton readID;
 	private JButton updateID;
@@ -129,8 +171,13 @@ public class Screen extends JFrame {
 	private JTextField idCampo;
 	private JTextArea textArea1;
 	private JButton deleteID;
-    Parser p = new Parser();
-    File csvFile = new File("DOCUMENTOS\\Pokedex.csv");
-    File saida = new File("DOCUMENTOS\\saida.txt");
-    List<Pokedex> pokedex;
+	private JButton ordMenu;
+
+	Parser parser = new Parser();
+	File miniDex = new File("DOCUMENTOS\\miniDex.csv");
+	File pokeDex = new File("DOCUMENTOS\\Pokedex.csv");
+	String path = "DATA\\pokedex.db";
+	List<Pokedex> pokedex;
+	Pokedex aux;
+	Binario bin = new Binario(path);
 }
