@@ -1,7 +1,7 @@
 import java.io.File;
 import java.util.List;
 
-public class nuqelar {
+public class debug {
     public static void runNuqelarTest() throws Exception {
         System.out.println("Running nuqelar test");
 

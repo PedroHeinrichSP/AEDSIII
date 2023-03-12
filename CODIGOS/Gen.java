@@ -17,8 +17,7 @@ public class Gen {
     public Gen() {
     }
 
-    // Base de dados para conversão, geração (String) para tipo Date (data de
-    // lançamento da gen), no parsing do CSV
+    // Base de dados para conversão, geração (String) para tipo Date (data de lançamento da gen), no parsing do CSV
     public Calendar setTime(int year, int month, int day) {
         Calendar cal = Calendar.getInstance();
         cal.set(Calendar.YEAR, year);
@@ -27,6 +26,7 @@ public class Gen {
         return cal;
     }
 
+    // Converte a geração (String) para tipo Date (data de lançamento da gen)
     public Date GenToDate(String gen) {
         switch (gen) {
             case "1":

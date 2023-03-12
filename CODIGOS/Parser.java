@@ -79,6 +79,7 @@ public class Parser {
         return pokedex;
     }
 
+    // Debug: Leitura do CSV
     public void readCsv(File file) throws IOException, CsvValidationException {
         CSVReader reader = new CSVReader(new FileReader(file));
         String[] line;

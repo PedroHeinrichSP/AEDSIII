@@ -231,18 +231,6 @@ public class Binario {
             writeToFile(arc.read());
     }
 
-    /**
-     * Tests if the file pointer is at the end of the file.
-     * 
-     * @return {@code true} if the file pointer is at the end of the file,
-     *         {@code false} otherwise.
-     * 
-     * @see {@link java.io.IOException}
-     */
-    private Boolean _isEOF() throws IOException {
-        return this.file.getFilePointer() >= this.file.length();
-    }
-
     public long length() throws IOException {
         this.file = new RandomAccessFile(this.path, "rw");
         long aux = this.file.length();

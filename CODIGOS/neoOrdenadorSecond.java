@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * The {@code SortedFile} class represents a file that can be sorted by any
  * attribute from type {@code T} register.
  * 
- * @author Fernando Campos Silva Dal Maria & Bruno Santiago de Oliveira
+ * @author Augusto Scardua & Pedro Heinrich feat.(Fernando Campos)
  * @version 1.0.0
  * 
  * @see {@link components.interfaces.Register}

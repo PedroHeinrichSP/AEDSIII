@@ -26,6 +26,9 @@ public class Screen extends JFrame {
 		idCampo = new JTextField();
 		textArea1 = new JTextArea();
 		deleteID = new JButton();
+		ordMenu = new JButton();
+
+		// ======== this ========
 		Container contentPane = getContentPane();
 		contentPane.setLayout(new MigLayout(
 				"fill,hidemode 3,align center center",
@@ -89,17 +92,9 @@ public class Screen extends JFrame {
 			try {
 				bin.clear();
 				pokedex = parser.leitura(miniDex);
-				System.out.println();
 				for (Pokedex p : pokedex) {
 					bin.writeToFile(p);
 				}
-				System.out.println("BINPAI");
-				while ((aux = bin.read()) != null) {
-					System.out.println(aux);
-				}
-				System.out.println("TEMPS");
-				ord.balanceadaComum();
-
 			} catch (Exception e1) {
 				e1.printStackTrace();
 			}
@@ -114,12 +109,6 @@ public class Screen extends JFrame {
 					ID.setText(aux.toString());
 				else
 					ID.setText("ID não encontrado");
-				/*
-				 * System.out.println("ID LIDO:" + aux.toString() + "\n Binário:");
-				 * while ((aux = bin.read()) != null) {
-				 * System.out.println(aux);
-				 * }
-				 */
 			} catch (Exception e2) {
 				e2.printStackTrace();
 			}
@@ -156,6 +145,22 @@ public class Screen extends JFrame {
 				e4.printStackTrace();
 			}
 		});
+
+		//---- ordMenu ----
+		ordMenu.setText("Menu de ordena\u00e7\u00e3o");
+		ordMenu.setToolTipText("Cria o .db com base no CSV");
+		contentPane.add(ordMenu, "cell 7 5");
+		pack();
+		setLocationRelativeTo(getOwner());
+
+		ordMenu.addActionListener(e -> {
+			try {
+				OrdemScreen ordScreen = new OrdemScreen(this);
+				ordScreen.setMinimumSize(this.getMinimumSize());
+			} catch (Exception e5) {
+				e5.printStackTrace();
+			}
+		});
 	}
 
 	private JButton importCSV;
@@ -166,6 +171,8 @@ public class Screen extends JFrame {
 	private JTextField idCampo;
 	private JTextArea textArea1;
 	private JButton deleteID;
+	private JButton ordMenu;
+
 	Parser parser = new Parser();
 	File miniDex = new File("DOCUMENTOS\\miniDex.csv");
 	File pokeDex = new File("DOCUMENTOS\\Pokedex.csv");
@@ -173,5 +180,4 @@ public class Screen extends JFrame {
 	List<Pokedex> pokedex;
 	Pokedex aux;
 	Binario bin = new Binario(path);
-	Ordenador ord = new Ordenador(path);
 }
