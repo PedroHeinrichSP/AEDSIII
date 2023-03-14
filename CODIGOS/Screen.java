@@ -91,7 +91,7 @@ public class Screen extends JFrame {
 		importCSV.addActionListener(e -> {
 			try {
 				bin.clear();
-				pokedex = parser.leitura(miniDex);
+				pokedex = parser.leitura(pokeDex);
 				for (Pokedex p : pokedex) {
 					bin.writeToFile(p);
 				}
