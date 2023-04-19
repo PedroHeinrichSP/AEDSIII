@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class Pokedex implements Serializable{
+public class Pokedex implements Serializable {
     /*
      * N° (ID - número da pokedex) - tipo Inteiro (short)
      * Name (Nome - Nome do Pokemon, formas diferentes incluídas) - tipo Fixo
@@ -136,8 +136,9 @@ public class Pokedex implements Serializable{
 
     // toString
     public String toString() {
-        DateFormat format = new SimpleDateFormat("EEE MMM dd kk:mm:ss zzz yyyy");    
-        return "ID: " + this.ID + " | Name: " + this.Name + " | Generation: " + format.format(Generation) + " | Height: "
+        DateFormat format = new SimpleDateFormat("EEE MMM dd kk:mm:ss zzz yyyy");
+        return "ID: " + this.ID + " | Name: " + this.Name + " | Generation: " + format.format(Generation)
+                + " | Height: "
                 + this.Height + "m | Weight: " + this.Weight + "kg | Type: " + this.Type + " | Category: "
                 + byteCatToString(this.Category) + " | Mega Evolution: " + this.Mega_Evolution_Flag
                 + " | TOTAL: " + this.TOTAL;
@@ -256,6 +257,10 @@ public class Pokedex implements Serializable{
         this.Category = dis.readByte();
         this.Mega_Evolution_Flag = dis.readBoolean();
         this.TOTAL = dis.readInt();
+    }
+
+    public String getSecKey() {
+        return Name;
     }
 
 }

@@ -4,10 +4,9 @@ import javax.swing.*;
 import net.miginfocom.swing.*;
 
 public class OrdemScreen extends JFrame{
-	public OrdemScreen(Screen screen) throws IOException {
+	public OrdemScreen(Screen screen) throws Exception {
 		this.screen = screen;
-		this.ordenador = new neoOrdenador(screen.path, 500);
-		this.ordenadorSecond = new neoOrdenadorSecond(screen.path, 500);
+		this.ordenador = new ordenadoresNeo(screen.path, 500);
 		initComponents();
 	}
 	private void initComponents() {
@@ -74,7 +73,7 @@ public class OrdemScreen extends JFrame{
 
 		comum.addActionListener( e ->{
 			try {
-				ordenador.sort();
+				ordenador.sortFirst();
 				JOptionPane.showMessageDialog(null, "Ordenado com sucesso!");
 				dispose();
 			} catch (Exception e1) {
@@ -94,7 +93,7 @@ public class OrdemScreen extends JFrame{
 
 		subst.addActionListener( e ->{
 			try {
-				ordenadorSecond.sort();
+				ordenador.sortSecond();
 				JOptionPane.showMessageDialog(null, "Ordenado com sucesso!");
 				dispose();
 			} catch (Exception e1) {
@@ -113,6 +112,5 @@ public class OrdemScreen extends JFrame{
 	private JButton subst;
 	private JTextArea textArea1;
 	public Screen screen;
-	public neoOrdenador ordenador;
-	public neoOrdenadorSecond ordenadorSecond;
+	public ordenadoresNeo ordenador;
 }

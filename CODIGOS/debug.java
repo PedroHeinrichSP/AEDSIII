@@ -10,21 +10,22 @@ public class debug {
         File miniDex = new File("DOCUMENTOS\\miniDex.csv");// Define o path do arquivo csv
         Binario bin = new Binario(path);// Define o path do arquivo binario
         Parser parser = new Parser();// Cria o parser
-        neoOrdenadorSecond ord = new neoOrdenadorSecond(path, 500);
+        ordenadoresNeo ord = new ordenadoresNeo(path, 500);
 
-        bin.clear();// limpa o arquivo binario
+        //bin.clear();// limpa o arquivo binario
         pokedex = parser.leitura(miniDex); // leitura do arquivo csv
+
         for (Pokedex p : pokedex) {// loop para escrever no arquivo binario
-            bin.writeToFile(p);// executa o metodo writeToFile da classe Binario para cada objeto da lista
-                               // Pokedex
+            //bin.writeToFile(p);// executa o metodo writeToFile da classe Binario para cada objeto da lista
+            // Pokedex
         }
-        ord.sort();// executa o metodo balanceadaComum da classe Ordenador
 
         List<Pokedex> aux = bin.readFull();// leitura do arquivo binario COMPLETO
 
         for (Pokedex printDex : aux) {
-            System.out.println(printDex.toString());// printa o objeto lido
+            //System.out.println(printDex.toString());// printa o objeto lido
         }
+        System.out.println(bin.read("Nidoran"));
 
         System.out.println("Test Finished");
     }

@@ -5,8 +5,9 @@ import javax.swing.*;
 import net.miginfocom.swing.*;
 
 public class Screen extends JFrame {
-	public Screen() {
+	public Screen() throws Exception {
 		initComponents();
+		bin = new Binario(path);
 	}
 
 	private void initComponents() {
@@ -179,5 +180,5 @@ public class Screen extends JFrame {
 	String path = "DATA\\pokedex.db";
 	List<Pokedex> pokedex;
 	Pokedex aux;
-	Binario bin = new Binario(path);
+	Binario bin;
 }
