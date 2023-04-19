@@ -1,3 +1,38 @@
 Running nuqelar test
-null
+
+DIRETÓRIO ------------------
+
+Profundidade global: 2
+0: 0
+1: 123
+2: 369
+3: 246
+
+CESTOS ---------------------
+
+Profundidade Local: 2
+Quantidade: 7
+| 4;1098 | 8;1148 | 12;213 | 16;1248 | 20;1048 | 24;379 | 28;1562 | -;- | -;- | -;- | 
+
+Profundidade Local: 2
+Quantidade: 8
+| 1;834 | 5;163 | 9;1198 | 13;523 | 17;1302 | 21;678 | 25;426 | 29;5 | -;- | -;- | 
+
+Profundidade Local: 2
+Quantidade: 8
+| 3;944 | 7;330 | 11;477 | 15;625 | 19;999 | 23;787 | 27;1511 | 31;106 | -;- | -;- | 
+
+Profundidade Local: 2
+Quantidade: 8
+| 2;890 | 6;268 | 10;1414 | 14;574 | 18;1359 | 22;733 | 26;1461 | 30;56 | -;- | -;- | 
+
+2064  3:(0008) Ekans,23 (3092) Nidoqueen,31 (1036) Rattata,19 (4120) , 0 (-001) , 0 (-001) , 0 (-001) , 0 (-001) , 0 (-001) , 0 (-001)
+0008  8:(-001) Arbok,24 (-001) Beedrill,15 (-001) Blastoise, 9 (-001) Bulbasaur, 1 (-001) Butterfree,12 (-001) Caterpie,10 (-001) Charmander, 4 (-001) Charmeleon, 5 (-001) , 0 (-001) --> (3092)
+3092  6:(-001) Ekans,23 (-001) Fearow,22 (-001) Ivysaur, 2 (-001) Kakuna,14 (-001) Mega Charizard Y, 6 (-001) Metapod,11 (-001) , 0 (-001) , 0 (-001) , 0 (-001) --> (1036)
+1036  9:(-001) Nidoqueen,31 (-001) Nidoran F,29 (-001) Nidorina,30 (-001) Pidgeot,18 (-001) Pidgeotto,17 (-001) Pidgey,16 (-001) Pikachu,25 (-001) Raichu,26 (-001) Raticate,20 (-001) --> (4120)
+4120  8:(-001) Rattata,19 (-001) Sandshrew,27 (-001) Sandslash,28 (-001) Spearow,21 (-001) Squirtle, 7 (-001) Venusaur, 3 (-001) Wartortle, 8 (-001) Weedle,13 (-001) , 0 (-001)
+
+ID: 19 | Name: Rattata | Generation: ter. fev. 27 02:13:07 BRT 1996 | Height: 0.3m | Weight: 3.5kg | Type: [Normal, ] | Category: Ordinary | Mega Evolution: false | TOTAL: 253
+DUMMY
+ID: 19 | Name: Rattata | Generation: ter. fev. 27 02:13:07 BRT 1996 | Height: 0.3m | Weight: 3.5kg | Type: [Normal, , Normal, ] | Category: Ordinary | Mega Evolution: false | TOTAL: 253
 Test Finished

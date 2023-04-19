@@ -30,10 +30,10 @@ public class Binario {
     public Binario(String path) throws Exception {
         this.path = path;
 
-        ld = new HashExt(10, "data/" + file + "ID" + ".data",
+        ld = new HashExt(10, "data/" + "hash" + "ID" + ".data",
                 "data/" + file + "cestos" + ".data");
 
-        li = new BPTree(10, "data/" + file + "Ii" + ".data");
+        li = new BPTree(10, "data/" + "bpt" + "Ii" + ".data");
     }
 
     /**
@@ -89,7 +89,7 @@ public class Binario {
         long pos = file.length();
         this.file.seek(pos);
 
-        ld.create(pokedex.getID(), pos + 2);
+        ld.create(pokedex.getID(), pos+1);
         li.create(pokedex.getSecKey(), pokedex.getID());
 
         byte[] arr = pokedex.toByteArray();
@@ -177,12 +177,13 @@ public class Binario {
 
             file.seek(pos);
 
-            size = file.readInt();
+            size = this.file.readInt();
             byte[] data = new byte[size];
-            file.read(data);
+            this.file.read(data);
 
-            object = new Pokedex();
+            object = seekID(id);
             object.fromByteArray(data);
+            System.out.println("DUMMY");
 
         } catch (Exception e) {
 
@@ -418,4 +419,9 @@ public class Binario {
         return aux;
     }
 
+    public void printShits() throws IOException {
+        ld.print();
+        System.out.println();
+        li.print();
+    }
 }

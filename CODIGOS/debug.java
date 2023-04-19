@@ -12,20 +12,25 @@ public class debug {
         Parser parser = new Parser();// Cria o parser
         ordenadoresNeo ord = new ordenadoresNeo(path, 500);
 
-        //bin.clear();// limpa o arquivo binario
+        bin.clear();// limpa o arquivo binario
         pokedex = parser.leitura(miniDex); // leitura do arquivo csv
 
         for (Pokedex p : pokedex) {// loop para escrever no arquivo binario
-            //bin.writeToFile(p);// executa o metodo writeToFile da classe Binario para cada objeto da lista
+            bin.writeToFile(p);// executa o metodo writeToFile da classe Binario para
+            // cada objeto da lista
             // Pokedex
         }
 
         List<Pokedex> aux = bin.readFull();// leitura do arquivo binario COMPLETO
 
         for (Pokedex printDex : aux) {
-            //System.out.println(printDex.toString());// printa o objeto lido
+            // System.out.println(printDex.toString());// printa o objeto lido
         }
-        System.out.println(bin.read("Nidoran"));
+
+        bin.printShits();
+
+        System.out.println(bin.read("Rattata"));
+        System.out.println(bin.read(19));
 
         System.out.println("Test Finished");
     }
