@@ -1,4 +1,5 @@
 import java.io.RandomAccessFile;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +32,7 @@ public class Binario {
         this.path = path;
 
         ld = new HashExt(10, "data/" + "hash" + "ID" + ".data",
-                "data/" + file + "cestos" + ".data");
+                "data/" + "hash" + "cestos" + ".data");
 
         li = new BPTree(10, "data/" + "bpt" + "Ii" + ".data");
     }

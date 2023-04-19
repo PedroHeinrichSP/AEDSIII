@@ -30,7 +30,7 @@ public class debug {
         bin.printShits();
 
         System.out.println(bin.read("Rattata"));
-        System.out.println(bin.read(19));
+        System.out.println(bin.read(23));
 
         System.out.println("Test Finished");
     }
