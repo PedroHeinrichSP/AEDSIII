@@ -7,6 +7,7 @@ import net.miginfocom.swing.*;
 public class Screen extends JFrame {
 	public Screen() throws Exception {
 		initComponents();
+		new THScreen(this);
 		bin = new Binario(path);
 	}
 
@@ -92,10 +93,11 @@ public class Screen extends JFrame {
 		importCSV.addActionListener(e -> {
 			try {
 				bin.clear();
-				pokedex = parser.leitura(miniDex);
+				pokedex = parser.leitura(pokeDex);
 				for (Pokedex p : pokedex) {
 					bin.writeToFile(p);
 				}
+				bin.printShits();
 			} catch (Exception e1) {
 				e1.printStackTrace();
 			}

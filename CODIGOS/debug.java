@@ -7,7 +7,7 @@ public class debug {
 
         List<Pokedex> pokedex;// Cria a lista Pokedex
         String path = "DATA\\pokedex.db";
-        File miniDex = new File("DOCUMENTOS\\miniDex.csv");// Define o path do arquivo csv
+        File miniDex = new File("DOCUMENTOS\\Pokedex.csv");// Define o path do arquivo csv
         Binario bin = new Binario(path);// Define o path do arquivo binario
         Parser parser = new Parser();// Cria o parser
         ordenadoresNeo ord = new ordenadoresNeo(path, 500);

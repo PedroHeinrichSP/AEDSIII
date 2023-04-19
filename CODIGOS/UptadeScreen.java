@@ -14,6 +14,12 @@ public class UptadeScreen extends JFrame {
 		this.id = id;
 		initComponents();
 	}
+	
+	public UptadeScreen(Pokedex pokedex, int id, THScreen screen) {
+		this.entry = pokedex;
+		this.id = id;
+		initComponents();
+	}
 
 	private void initComponents() {
 		

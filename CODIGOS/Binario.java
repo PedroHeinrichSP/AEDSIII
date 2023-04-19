@@ -1,5 +1,4 @@
 import java.io.RandomAccessFile;
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -90,6 +89,7 @@ public class Binario {
         long pos = file.length();
         this.file.seek(pos);
 
+        System.out.println("ID: " + pokedex.getID() +" "+ pokedex.toString());
         ld.create(pokedex.getID(), pos+1);
         li.create(pokedex.getSecKey(), pokedex.getID());
 
