@@ -263,4 +263,8 @@ public class Pokedex implements Serializable {
         return Name;
     }
 
+    public String toIndexString() {
+        return  this.ID + " " + this.Name + " " + this.Generation + " "  + this.Height + " " + this.Weight + " " + this.Type +
+                " " + byteCatToString(this.Category) + " " + this.Mega_Evolution_Flag + " " + this.TOTAL;
+    }
 }

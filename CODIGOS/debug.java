@@ -27,7 +27,7 @@ public class debug {
             // System.out.println(printDex.toString());// printa o objeto lido
         }
 
-        bin.printShits();
+        //bin.printShits();
 
         System.out.println(bin.read("Rattata"));
         System.out.println(bin.read(23));

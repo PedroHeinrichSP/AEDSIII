@@ -422,7 +422,7 @@ public class Binario {
 
     public void printShits() throws IOException {
         ld.print();
-        System.out.println();
+        System.out.println("\n");
         li.print();
     }
 }

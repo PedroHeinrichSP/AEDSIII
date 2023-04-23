@@ -15,6 +15,7 @@ public class Main extends debug {
                 File saida = new File("DATA\\saida.txt");
                 PrintStream stream = new PrintStream(saida);
                 System.setOut(stream); // Redireciona a saída padrão para o arquivo
+                System.setErr(stream); // Redireciona a saída de erro padrão para o arquivo
         }
 
 }
