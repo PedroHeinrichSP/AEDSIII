@@ -13,6 +13,10 @@ public class Binario {
     private long posicao = Integer.BYTES;
     private long ultimaPosicao = Integer.BYTES;
 
+    // Indices Direto e Indireto armazenado em uma Hash e ArvoreB+
+    private HashExt ld;
+    private BPTree li;
+
     public void resetar() throws IOException {
         this.posicao = Integer.BYTES;
     }
@@ -23,8 +27,13 @@ public class Binario {
         this.file.close();
     }
 
-    public Binario(String path) {
+    public Binario(String path) throws Exception {
         this.path = path;
+
+        ld = new HashExt(10, "data/" + "hash" + "ID" + ".data",
+                "data/" + "hash" + "cestos" + ".data");
+
+        li = new BPTree(10, "data/" + "bpt" + "Ii" + ".data");
     }
 
     /**
@@ -40,8 +49,9 @@ public class Binario {
      * Constroi o arquivo binário de uma pokedex
      * 
      * @param pokedex Lista de pokemons
+     * @throws Exception
      */
-    public void writePokedexToFile(List<Pokedex> pokedex) throws IOException {
+    public void writePokedexToFile(List<Pokedex> pokedex) throws Exception {
         clear();
         for (Pokedex entry : pokedex) {
             writeToFile(entry);
@@ -71,12 +81,18 @@ public class Binario {
      * 
      * @param path    Caminho do arquivo
      * @param pokedex Lista de pokemons
+     * @throws Exception
      */
-    public void writeToFile(Pokedex pokedex) throws IOException {
+    public void writeToFile(Pokedex pokedex) throws Exception {
         this.file = new RandomAccessFile(path, "rw");
         cabecalho();
+        long pos = file.length();
+        this.file.seek(pos);
 
-        this.file.seek(file.length());
+        System.out.println("ID: " + pokedex.getID() +" "+ pokedex.toString());
+        ld.create(pokedex.getID(), pos+1);
+        li.create(pokedex.getSecKey(), pokedex.getID());
+
         byte[] arr = pokedex.toByteArray();
         this.file.writeBoolean(true);
         this.file.writeInt(arr.length);
@@ -105,6 +121,77 @@ public class Binario {
 
     protected void _returnOneRegister() throws IOException {
         this.posicao = this.ultimaPosicao;
+    }
+
+    /*
+     * Lendo um objeto a partir da chave secundaria
+     * 
+     * A funcao recebe uma String(chave secundaria). Como
+     * a chave secundaria guarda a ID do objeto, o programa
+     * basicamente encontra a ID a partir da chave secundaria
+     * e executa a funcao "read(int id)".
+     */
+    public Pokedex read(String secKey) throws IOException {
+
+        long pos = -1;
+        Pokedex object = null;
+
+        try {
+
+            pos = li.read(secKey);
+        } catch (Exception e) {
+
+            System.err.println("Nao foi possivel ler a chave");
+        }
+
+        if (pos >= 0) {
+
+            object = seekID((int) pos);
+        } else {
+
+            System.err.println("Esse registro nao foi encontrado ou foi deletado");
+        }
+        return object;
+    }
+
+    // Lendo um objeto a partir da ID
+    /*
+     * A funcao recebe a ID(chave primaria),e apartir da ID
+     * encontra a posicao do registro no indice direto. Com a
+     * posicao encontrada, o programa entao vai na posicao e
+     * faz a leitura dos dados e entao armazena tais dados no
+     * objeto que será retornado.
+     */
+    public Pokedex read(int id) {
+
+        Pokedex object = null;
+        int size = 0;
+        long pos = -1;
+
+        try {
+
+            pos = ld.read(id);
+            if (pos < 0) {
+
+                throw new Exception("Esse registro nao existe ou foi apagado");
+            }
+
+            file.seek(pos);
+
+            size = this.file.readInt();
+            byte[] data = new byte[size];
+            this.file.read(data);
+
+            object = seekID(id);
+            object.fromByteArray(data);
+            System.out.println("DUMMY");
+
+        } catch (Exception e) {
+
+            System.err.println("Nao foi possivel fazer a leitura do registro");
+        }
+
+        return object;
     }
 
     public Pokedex read() throws IOException {
@@ -142,14 +229,51 @@ public class Binario {
         return aux;
     }
 
-    public boolean delete(int id) throws IOException {
+    // Deleta um registro a partir da chave secundaria
+    /*
+     * Procura pela chave secundaria, se tiver encontrado,
+     * manda a ID para a funcao "delete(int id)"
+     */
+    public void delete(String secKey) throws Exception {
+
+        int pos = -1;
+
+        try {
+
+            pos = li.read(secKey);
+        } catch (Exception e) {
+
+            System.err.println("Nao foi possivel ler a chave");
+        }
+
+        if (pos >= 0) {
+
+            delete((int) pos);
+        } else {
+
+            System.err.println("Esse registro nao foi encontrado ou foi deletado");
+        }
+    }
+
+    public boolean delete(int id) throws Exception {
         this.file = new RandomAccessFile(this.path, "rw");
+        long posi = -1;
+        Pokedex auxObject = null;
+
+        posi = ld.read(id) - 2;
+        if (posi < 0) {
+
+            System.err.println("Esse registro não existe ou foi apagado");
+        }
 
         if (this.file.length() == 0) {
             throw new IllegalStateException("O arquivo está vazio");
         }
 
         this.file.seek(Integer.BYTES);
+
+        ld.delete(id);
+        li.delete(auxObject.getSecKey());
 
         long pos = -1;
 
@@ -190,6 +314,64 @@ public class Binario {
         return true;
     }
 
+    // Atualiza um registro
+    /*
+     * Primeiro ele verifica se o objeto que o
+     * usuario quer atualizar existe no registro,
+     * depois de confirmado a existencia do objeto,
+     * ele agora precisa verificar se o novo objeto
+     * tem o mesmo tamanho(ou menor tamanho) do antigo objeto.
+     * Se o objeto que tem que ser atualizado atender essa
+     * especificacao, entao o objeto e apenas rescrito.
+     * Caso o novo objeto seja maior do que o registro,
+     * entao o objeto atual no registro sera deletado,
+     * e o novo objeto sera adicionado no fim do arquivo
+     */
+    public boolean update(Pokedex object) {
+
+        boolean resp = false;
+
+        int id = -1;
+        long pos = -1;
+        int tam = 0;
+        byte[] objectData;
+
+        try {
+
+            id = object.getID();
+            pos = ld.read(id);
+            objectData = object.toByteArray();
+
+            if (pos < 0) {
+
+                System.err.println("Erro, objeto não existe ou foi deletado");
+                resp = false;
+            } else {
+
+                file.seek(pos);
+                tam = file.readInt();
+                if (objectData.length <= tam) {
+
+                    file.write(objectData);
+                    resp = true;
+                } else {
+
+                    delete(id);
+                    writeToFile(object);
+                    resp = true;
+
+                }
+
+            }
+
+        } catch (Exception e) {
+
+            System.err.println("Nao foi possivel atualizar o registro");
+        }
+
+        return resp;
+    }
+
     public Pokedex seekID(int id) throws IOException {
         this.file = new RandomAccessFile(this.path, "rw");
 
@@ -224,7 +406,7 @@ public class Binario {
         return this.posicao >= this.length();
     }
 
-    public void copy(Binario arc) throws IOException {
+    public void copy(Binario arc) throws Exception {
         this.clear();
 
         while (!arc.isEOF())
@@ -238,4 +420,9 @@ public class Binario {
         return aux;
     }
 
+    public void printShits() throws IOException {
+        ld.print();
+        System.out.println("\n");
+        li.print();
+    }
 }

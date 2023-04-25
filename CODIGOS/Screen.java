@@ -5,8 +5,9 @@ import javax.swing.*;
 import net.miginfocom.swing.*;
 
 public class Screen extends JFrame {
-	public Screen() {
+	public Screen() throws Exception {
 		initComponents();
+		bin = new Binario(path);
 	}
 
 	private void initComponents() {
@@ -43,7 +44,7 @@ public class Screen extends JFrame {
 						"[fill]" +
 						"[fill]",
 				// rows
-				"[]" +
+						"[]" +
 						"[]" +
 						"[]" +
 						"[]" +
@@ -52,7 +53,7 @@ public class Screen extends JFrame {
 						"[]"));
 
 		// ---- importCSV ----
-		importCSV.setText("Importar o CSV...");
+		importCSV.setText("Criar DB e Hash/BTree");
 		contentPane.add(importCSV, "cell 1 1");
 
 		// ---- Pokemon ----
@@ -95,9 +96,11 @@ public class Screen extends JFrame {
 				for (Pokedex p : pokedex) {
 					bin.writeToFile(p);
 				}
+				bin.printShits();
 			} catch (Exception e1) {
 				e1.printStackTrace();
 			}
+			
 		});
 
 		readID.addActionListener(e -> {
@@ -147,8 +150,8 @@ public class Screen extends JFrame {
 		});
 
 		//---- ordMenu ----
-		ordMenu.setText("Menu de ordena\u00e7\u00e3o");
-		ordMenu.setToolTipText("Cria o .db com base no CSV");
+		ordMenu.setText("Ordena\u00e7\u00e3o e BTree/Hash");
+		ordMenu.setToolTipText("Abre os menus de ordena\u00e7\u00e3o externa e BTree/Hash, junto a opção de pesquisa por indice invertido");
 		contentPane.add(ordMenu, "cell 7 5");
 		pack();
 		setLocationRelativeTo(getOwner());
@@ -156,6 +159,7 @@ public class Screen extends JFrame {
 		ordMenu.addActionListener(e -> {
 			try {
 				OrdemScreen ordScreen = new OrdemScreen(this);
+				new THScreen(this);
 				ordScreen.setMinimumSize(this.getMinimumSize());
 			} catch (Exception e5) {
 				e5.printStackTrace();
@@ -179,5 +183,5 @@ public class Screen extends JFrame {
 	String path = "DATA\\pokedex.db";
 	List<Pokedex> pokedex;
 	Pokedex aux;
-	Binario bin = new Binario(path);
+	Binario bin;
 }
