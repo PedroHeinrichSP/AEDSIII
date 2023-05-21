@@ -10,7 +10,7 @@ public class Main extends debug {
                 btreeFile.delete();
                 hashFile.delete();
                 hashFile_.delete();
-                new Screen();
+                Screen main = new Screen();
                 // Saída (Saida num arquivo em txt)
                 File saida = new File("DATA\\saida.txt");
                 PrintStream stream = new PrintStream(saida);

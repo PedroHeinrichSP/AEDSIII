@@ -28,7 +28,8 @@ public class Screen extends JFrame {
 		textArea1 = new JTextArea();
 		deleteID = new JButton();
 		ordMenu = new JButton();
-
+		compMenu = new JButton();
+		
 		// ======== this ========
 		Container contentPane = getContentPane();
 		contentPane.setLayout(new MigLayout(
@@ -152,7 +153,7 @@ public class Screen extends JFrame {
 		//---- ordMenu ----
 		ordMenu.setText("Ordena\u00e7\u00e3o e BTree/Hash");
 		ordMenu.setToolTipText("Abre os menus de ordena\u00e7\u00e3o externa e BTree/Hash, junto a opção de pesquisa por indice invertido");
-		contentPane.add(ordMenu, "cell 7 5");
+		contentPane.add(ordMenu, "cell 6 5");
 		pack();
 		setLocationRelativeTo(getOwner());
 
@@ -161,6 +162,20 @@ public class Screen extends JFrame {
 				OrdemScreen ordScreen = new OrdemScreen(this);
 				new THScreen(this);
 				ordScreen.setMinimumSize(this.getMinimumSize());
+			} catch (Exception e5) {
+				e5.printStackTrace();
+			}
+		});
+		
+		//---- compMenu ----
+		compMenu.setText("(Des)Compressão");
+		contentPane.add(compMenu, "cell 7 5");
+		pack();
+		setLocationRelativeTo(getOwner());
+
+		compMenu.addActionListener(e -> {
+			try {
+				telaComp telaComp = new telaComp(this);
 			} catch (Exception e5) {
 				e5.printStackTrace();
 			}
@@ -176,6 +191,7 @@ public class Screen extends JFrame {
 	private JTextArea textArea1;
 	private JButton deleteID;
 	private JButton ordMenu;
+	private JButton compMenu;
 
 	Parser parser = new Parser();
 	File miniDex = new File("DOCUMENTOS\\miniDex.csv");
