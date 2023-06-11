@@ -1,2 +1,12 @@
 
 *.ini
+DATA/bptIi.data
+DATA/bptIi.dataHuffmanCompressao.huff
+DATA/bptIi.dataLZWCompressao.lzw
+DATA/hashcestos.data
+DATA/hashcestos.dataHuffmanCompressao.huff
+DATA/hashcestos.dataLZWCompressao.lzw
+DATA/hashID.data
+DATA/pokedex.db
+DATA/saida.txt
+DATA/saida.txt
