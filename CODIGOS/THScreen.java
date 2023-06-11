@@ -3,7 +3,6 @@ import javax.swing.*;
 import net.miginfocom.swing.*;
 
 public class THScreen extends JFrame {
-
 	public THScreen(Screen principal) {
 		this.principal = principal;
 		this.bin = principal.bin;
