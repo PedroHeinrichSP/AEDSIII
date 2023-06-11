@@ -33,5 +33,7 @@ public class debug {
         System.out.println(bin.read(23));
 
         System.out.println("Test Finished");
+
+        
     }
 }
