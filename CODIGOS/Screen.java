@@ -190,7 +190,7 @@ public class Screen extends JFrame {
 
 		casaMenu.addActionListener(e -> {
 			try {
-				telaCasamento telaCasamento = new telaCasamento(this);
+				telaCasamento telaCasamento = new telaCasamento(this, getAllString());
 			} catch (Exception e5) {
 				e5.printStackTrace();
 			}
@@ -216,4 +216,12 @@ public class Screen extends JFrame {
 	List<Pokedex> pokedex;
 	Pokedex aux;
 	Binario bin;
+
+	public String getAllString() {
+		StringBuilder result = new StringBuilder();
+		for (Pokedex p : pokedex) {
+			result.append(p.toString());
+		}
+		return result.toString();
+	}
 }

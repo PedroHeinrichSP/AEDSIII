@@ -2,7 +2,7 @@ public class casamento {
     
     // Método de força bruta para strings para correspondência de padrões
     // que retorna a quantidade total de operações e o tempo gasto nelas
-    public static int bruteForce(String text, String pattern) {
+    public static String bruteForce(String text, String pattern) {
         int n = text.length(); // Tamanho do texto
         int m = pattern.length(); // Tamanho do padrão
         int operations = 0; // Contador de operações
@@ -15,18 +15,16 @@ public class casamento {
             }
             if (j == m) { // Se todos os elementos do padrão correspondem, retorna a quantidade de operações e o tempo gasto
                 long endTime = System.nanoTime(); // Tempo final
-                System.out.println("Total time: " + (endTime - startTime) + " nanoseconds");
-                return operations;
+                return "Total time: " + (endTime - startTime) + " nanoseconds, operations: " + operations;
             }
         }
         long endTime = System.nanoTime(); // Tempo final
-        System.out.println("Total time: " + (endTime - startTime) + " nanoseconds");
-        return operations;
+        return "Total time: " + (endTime - startTime) + " nanoseconds, operations: " + operations;
     }
 
     // Método KMP para strings para correspondência de padrões
     // que retorna a quantidade total de operações e o tempo gasto nelas
-    public static int KMP(String text, String pattern) {
+    public static String KMP(String text, String pattern) {
         int n = text.length(); // Tamanho do texto
         int m = pattern.length(); // Tamanho do padrão
         int operations = 0; // Contador de operações
@@ -44,13 +42,11 @@ public class casamento {
             }
             if (q == m) { // Se todos os elementos do padrão correspondem, retorna a quantidade de operações e o tempo gasto
                 long endTime = System.nanoTime(); // Tempo final
-                System.out.println("Total time: " + (endTime - startTime) + " nanoseconds");
-                return operations;
+                return "Total time: " + (endTime - startTime) + " nanoseconds, operations: " + operations;
             }
         }
         long endTime = System.nanoTime(); // Tempo final
-        System.out.println("Total time: " + (endTime - startTime) + " nanoseconds");
-        return operations;
+        return "Total time: " + (endTime - startTime) + " nanoseconds, operations: " + operations;
     }
     //create the prefix function method
     private static int[] prefixFunction(String pattern) {

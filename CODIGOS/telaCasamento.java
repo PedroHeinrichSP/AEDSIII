@@ -4,8 +4,9 @@ import javax.swing.*;
 import net.miginfocom.swing.*;
 
 public class telaCasamento extends JFrame {
-	public telaCasamento(Screen main) {
+	public telaCasamento(Screen main, String pokedex) {
         this.main = main;
+        this.pokedex = pokedex;
 		initComponents();
 	}
 
@@ -63,7 +64,7 @@ public class telaCasamento extends JFrame {
 			// ======== scrollPane1 ========
 			{
 				// ---- textArea2 ----
-				textArea2.setVisible(false);
+				textArea2.setVisible(true);
 				textArea2.setEditable(false);
 				textArea2.setLineWrap(true);
 				textArea2.setWrapStyleWord(true);
@@ -76,10 +77,10 @@ public class telaCasamento extends JFrame {
 		// ---- INDEX ----
 		INDEX.addActionListener(e -> {
 			try {
-                String tela = "";
-                tela += casamento.KMP(getAllString(), entry.getText()) + "\n";
-                tela += casamento.bruteForce(getAllString(), entry.getText()) + "\n";
-                textArea2.setText(tela);
+                StringBuilder tela = new StringBuilder();
+                tela.append(casamento.KMP(pokedex, entry.getText()) + "\n");
+                tela.append(casamento.bruteForce(pokedex, entry.getText()) + "\n");
+                textArea2.setText(tela.toString());
 			} catch (Exception ex) {
 				ex.printStackTrace();
 				JOptionPane.showMessageDialog(null, "Ocorreu um erro!\nTente novamente! " + ex);
@@ -96,13 +97,6 @@ public class telaCasamento extends JFrame {
 	private JTextArea textArea2;
     
     public Screen main;
+    public String pokedex;
 
-    // get all pokemons strings
-    private String getAllString() {
-        String warning = "";
-        for (int i = 0; i < main.pokedex.size(); i++) {
-            warning += main.pokedex.get(i).toString() + "\n";
-        }
-        return warning;
-    }
 }
