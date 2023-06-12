@@ -1,5 +1,5 @@
 public class casamento {
-
+    
     // Método de força bruta para strings para correspondência de padrões
     // que retorna a quantidade total de operações e o tempo gasto nelas
     public static int bruteForce(String text, String pattern) {
@@ -53,7 +53,7 @@ public class casamento {
         return operations;
     }
     //create the prefix function method
-    public static int[] prefixFunction(String pattern) {
+    private static int[] prefixFunction(String pattern) {
         int m = pattern.length(); // Tamanho do padrão
         int[] pi = new int[m]; // Vetor de prefixo
         pi[0] = 0; // O primeiro elemento do vetor de prefixo é sempre 0

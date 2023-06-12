@@ -29,7 +29,8 @@ public class Screen extends JFrame {
 		deleteID = new JButton();
 		ordMenu = new JButton();
 		compMenu = new JButton();
-		
+		casaMenu = new JButton();
+
 		// ======== this ========
 		Container contentPane = getContentPane();
 		contentPane.setLayout(new MigLayout(
@@ -74,7 +75,7 @@ public class Screen extends JFrame {
 		ID.setEditable(false);
 		ID.setLineWrap(true);
 		ID.setWrapStyleWord(true);
-		contentPane.add(ID, "cell 3 1 3 5,growy");
+		contentPane.add(ID, "cell 4 1 3 4,growy");
 
 		// ---- idCampo ----
 		idCampo.setToolTipText("ID");
@@ -180,6 +181,20 @@ public class Screen extends JFrame {
 				e5.printStackTrace();
 			}
 		});
+
+		//---- casaMenu ----
+		casaMenu.setText("Casamento de Padrões");
+		contentPane.add(casaMenu, "cell 8 5");
+		pack();
+		setLocationRelativeTo(getOwner());
+
+		casaMenu.addActionListener(e -> {
+			try {
+				telaCasamento telaCasamento = new telaCasamento(this);
+			} catch (Exception e5) {
+				e5.printStackTrace();
+			}
+		});
 	}
 
 	private JButton importCSV;
@@ -192,6 +207,7 @@ public class Screen extends JFrame {
 	private JButton deleteID;
 	private JButton ordMenu;
 	private JButton compMenu;
+	private JButton casaMenu;
 
 	Parser parser = new Parser();
 	File miniDex = new File("DOCUMENTOS\\miniDex.csv");
