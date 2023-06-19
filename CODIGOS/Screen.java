@@ -183,7 +183,7 @@ public class Screen extends JFrame {
 		});
 
 		//---- casaMenu ----
-		casaMenu.setText("Casamento de Padrões");
+		casaMenu.setText("Casamento e Encriptação");
 		contentPane.add(casaMenu, "cell 8 5");
 		pack();
 		setLocationRelativeTo(getOwner());

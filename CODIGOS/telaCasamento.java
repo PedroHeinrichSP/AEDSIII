@@ -18,6 +18,7 @@ public class telaCasamento extends JFrame {
 		INDEX = new JButton();
 		scrollPane1 = new JScrollPane();
 		textArea2 = new JTextArea();
+		Crypto = new JButton();
 
 		// ======== this2 ========
 		{
@@ -58,8 +59,12 @@ public class telaCasamento extends JFrame {
 			this2ContentPane.add(entry, "cell 1 1 2 1");
 
 			// ---- INDEX ----
-			INDEX.setText("INDEX");
+			INDEX.setText("Casamento");
 			this2ContentPane.add(INDEX, "cell 1 2 2 1");
+
+			// ---- Crypto ----
+			Crypto.setText("Encriptar");
+			this2ContentPane.add(Crypto, "cell 1 3 2 1");
 
 			// ======== scrollPane1 ========
 			{
@@ -86,6 +91,18 @@ public class telaCasamento extends JFrame {
 				JOptionPane.showMessageDialog(null, "Ocorreu um erro!\nTente novamente! " + ex);
 			}
 		});
+
+		// ---- Crypto ----
+		Crypto.addActionListener(e -> {
+			try {
+				String encryptedData = encryptDecrypt();
+				textArea2.setText(encryptedData);
+			} catch (Exception ex) {
+				ex.printStackTrace();
+				JOptionPane.showMessageDialog(null, "Ocorreu um erro!\nTente novamente! " + ex);
+			}
+		});
+
 	}
 
 	private JFrame this2;
@@ -95,8 +112,18 @@ public class telaCasamento extends JFrame {
 	private JScrollPane scrollPane1;
 	private Screen principal;
 	private JTextArea textArea2;
+	private JButton Crypto;
     
     public Screen main;
     public String pokedex;
 
+	private String encryptDecrypt() throws Exception {
+		CryptoClass crypto = new CryptoClass();
+		String encryptedAESData = crypto.encryptAES(pokedex);
+		String encryptedDESData = crypto.encryptDES(pokedex);
+		String decryptedAESData = crypto.decryptAES(encryptedAESData);
+		String decryptedDESData = crypto.decryptDES(encryptedDESData);
+		return 	"Dados descriptografados com AES: " + decryptedAESData + "\n" +
+				"Dados descriptografados com DES: " + decryptedDESData;
+	}
 }
